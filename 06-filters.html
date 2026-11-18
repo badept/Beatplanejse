@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bộ lọc</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="app-screen">
+  <main class="phone premium-phone">
+    <div class="statusbar"><span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
+    <header class="appbar simple"><button class="icon-btn" data-back data-href="01-map-overview.html"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button><h1>Bộ lọc</h1><span></span></header>
+    <section class="content"><form class="filters" data-filter-form>
+      <div class="field"><label><svg class="ico"><use href="assets/images/icons.svg#person" /></svg>Nhân viên</label><input type="search" name="employee" autocomplete="off" placeholder="Tất cả nhân viên — gõ để tìm" data-filter-options="Nguyễn Văn An|Trần Văn Bình|Lê Văn Huy" /></div>
+      <div class="field"><label><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg>Khu vực</label><input type="search" name="area" autocomplete="off" placeholder="Tất cả khu vực — gõ để tìm" data-filter-options="Quận 7|Quận 3|Thủ Đức" /></div>
+      <div class="field"><label><svg class="ico"><use href="assets/images/icons.svg#pulse" /></svg>Trạng thái (tự động) ⓘ</label><input type="search" name="status" autocomplete="off" placeholder="Tất cả trạng thái — gõ để tìm" data-filter-options="Đang làm việc|Đã OUT|Chưa làm việc" /></div>
+      <div class="field"><label><svg class="ico"><use href="assets/images/icons.svg#store" /></svg>Cửa hàng</label><input type="search" name="store" autocomplete="off" placeholder="Tất cả cửa hàng — gõ để tìm" data-filter-options="CH An Phú|CH Minh Khai|CH Hoàng Diệu" /></div>
+      <div class="field"><label><svg class="ico"><use href="assets/images/icons.svg#briefcase" /></svg>Ca làm việc</label><input type="search" name="shift" autocomplete="off" placeholder="Tất cả ca làm việc — gõ để tìm" data-filter-options="Ca sáng|Ca chiều|Ca tối" /></div>
+      <div class="toggle-row"><div><strong>Chỉ hiển thị nhân viên đang làm việc</strong><small>Chỉ hiển thị nhân viên có ca làm việc trong ngày.</small></div><button type="button" class="switch on" aria-pressed="true"></button></div>
+      <div class="toggle-row"><div><strong>Hiển thị cửa hàng gần SUP</strong><small>Ưu tiên hiển thị các cửa hàng gần vị trí của bạn.</small></div><button type="button" class="switch on" aria-pressed="true"></button></div>
+    </form></section>
+    <div class="filter-actions"><button class="btn" type="button" data-reset-filters><svg class="ico"><use href="assets/images/icons.svg#refresh" /></svg>Đặt lại</button><button class="btn primary" type="button" data-apply-filters><svg class="ico"><use href="assets/images/icons.svg#check" /></svg>Áp dụng</button></div>
+    <div class="toast"></div>
+  </main>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

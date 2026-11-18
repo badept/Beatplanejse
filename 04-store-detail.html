@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chi tiết cửa hàng</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body class="app-screen">
+    <main class="phone premium-phone">
+      <div class="statusbar">
+        <span>09:41</span
+        ><span class="status-right"
+          ><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i
+          ><i class="battery"></i
+        ></span>
+      </div>
+      <header class="appbar simple">
+        <button class="icon-btn" data-back data-href="01-map-overview.html">
+          <svg class="ico"><use href="assets/images/icons.svg#back" /></svg>
+        </button>
+        <h1>Chi tiết cửa hàng</h1>
+        <span></span>
+      </header>
+      <section class="content">
+        <div class="map store-map">
+          <span class="marker m1"
+            ><svg class="ico">
+              <use href="assets/images/icons.svg#person" /></svg></span
+          ><span class="marker m3"
+            ><svg class="ico"><use href="assets/images/icons.svg#person" /></svg
+          ></span>
+          <div class="range">
+            <span class="marker store"
+              ><svg class="ico">
+                <use href="assets/images/icons.svg#store" /></svg
+            ></span>
+          </div>
+        </div>
+        <div class="store-panel">
+          <div class="store-title">
+            <div class="store-logo">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#store" />
+              </svg>
+            </div>
+            <div>
+              <div class="person-name">CH An Phú</div>
+              <small>Mã CH: CH001</small>
+            </div>
+            <button class="close" data-href="01-map-overview.html">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#close" />
+              </svg>
+            </button>
+          </div>
+          <div class="info-lines">
+            <div class="info-line">
+              <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg
+              ><span
+                >Số 123 Nguyễn Văn Linh, P. Tân Phú,<br />Q.7, TP. Hồ Chí
+                Minh</span
+              >
+            </div>
+            <div class="info-line">
+              <svg class="ico"><use href="assets/images/icons.svg#route" /></svg
+              ><span>Khoảng cách đến cửa hàng: <b>30 m</b></span>
+            </div>
+            <div class="info-line">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#target" /></svg
+              ><span>Bán kính check-in: <b>100 m</b></span>
+            </div>
+          </div>
+          <div class="distance-note">
+            <svg class="ico"><use href="assets/images/icons.svg#check" /></svg
+            ><span
+              ><strong>SUP ở gần cửa hàng</strong><br />Bạn đang trong bán kính
+              check-in (≤ 100 m)</span
+            >
+          </div>
+                <span class="subheading">Nhân viên có lịch làm việc hôm nay (3)</span>
+          <div
+            class="employee"
+            data-modal-target="employee-info-modal"
+            data-focus="an"
+            data-name="Nguyễn Văn An"
+            data-avatar="assets/images/avatar-an.svg"
+            data-status="Đang làm việc"
+            data-status-class="green"
+            data-store="CH An Phú"
+            data-gps="09:12 (29 phút trước)"
+            role="button"
+            tabindex="0"
+          >
+            <img class="avatar" src="assets/images/avatar-an.svg" alt="" />
+            <div>
+              <b style="font-size: 10px">Nguyễn Văn An</b><br /><span
+                class="badge green"
+                >Đang làm việc</span
+              >
+            </div>
+            <svg class="ico">
+              <use href="assets/images/icons.svg#chevron" />
+            </svg>
+          </div>
+          <div class="employee" data-href="12-completed-stores.html" role="button" tabindex="0">
+            <img class="avatar" src="assets/images/avatar-binh.svg" alt="Phạm Quốc Bảo" />
+            <div><b style="font-size: 10px">Phạm Quốc Bảo</b><br /><span class="badge orange">Hoàn thành</span></div>
+            <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+          </div>
+          <div class="employee" data-href="12-completed-stores.html" role="button" tabindex="0">
+            <img class="avatar" src="assets/images/avatar-huy.svg" alt="Lê Văn Huy" />
+            <div><b style="font-size: 10px">Lê Văn Huy</b><br /><span class="badge orange">Hoàn thành</span></div>
+            <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+          </div>
+        </div>
+      </section>
+      <div class="bottom-actions">
+        <button class="btn primary" data-href="08-sup-checkin.html">
+          <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg
+          >Check-in SUP</button
+        ><button class="btn" data-href="10-store-report.html" data-store-employee-report>
+          <svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>Xem
+          báo cáo cửa hàng
+        </button>
+      </div>
+
+      <div
+        class="map-info-modal employee-sheet-modal"
+        id="employee-info-modal"
+        hidden
+      >
+        <button
+          class="modal-backdrop"
+          data-modal-close
+          aria-label="Đóng thông tin nhân viên"
+        ></button>
+        <article
+          class="map-info-card employee-detail-card"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="employee-modal-name"
+        >
+          <span class="employee-sheet-grabber"></span>
+          <button class="modal-close" data-modal-close aria-label="Đóng">
+            <svg class="ico"><use href="assets/images/icons.svg#close" /></svg>
+          </button>
+          <div class="modal-person">
+            <img
+              id="employee-modal-avatar"
+              class="modal-avatar"
+              src="assets/images/avatar-an.svg"
+              alt=""
+            />
+            <div>
+              <h2 id="employee-modal-name">Nguyễn Văn An</h2>
+              <span id="employee-modal-status" class="badge green"
+                >Đang làm việc</span
+              >
+            </div>
+          </div>
+          <div class="employee-detail-meta">
+            <p>
+              <svg class="ico"><use href="assets/images/icons.svg#briefcase" /></svg>
+              <span>Ca làm việc: 08:00 - 17:00</span>
+            </p>
+            <p>
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+              <span>Cửa hàng hiện tại: <b id="employee-modal-store">CH An Phú</b></span>
+            </p>
+          </div>
+
+          <section class="employee-day-route">
+            <h3>Lộ trình cửa hàng trong ngày (3 cửa hàng)</h3>
+            <ol>
+              <li><b>1</b><span>CH Minh Khai</span><small>08:20 – 09:05 ✓</small></li>
+              <li class="current"><b>2</b><span id="employee-modal-route-store">CH An Phú (Hiện tại)</span><small>09:12 – ...</small></li>
+              <li><b>3</b><span>CH Hoàng Diệu (Dự kiến)</span><small>~ 10:30</small></li>
+            </ol>
+          </section>
+
+          <div class="employee-tracking-info">
+            <p>
+              <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg>
+              <span>GPS cập nhật gần nhất: <b id="employee-modal-gps">09:12 (29 phút trước)</b></span>
+            </p>
+            <p>
+              <svg class="ico"><use href="assets/images/icons.svg#report" /></svg>
+              <span>Báo cáo: Đã gửi 1/3 cửa hàng</span>
+            </p>
+            <p>
+              <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg>
+              <span>Chấm công: Đã Check-in lúc 08:02</span>
+            </p>
+          </div>
+
+          <div class="employee-sheet-actions">
+            <button class="btn primary" data-href="02-employee-route.html">
+              <svg class="ico"><use href="assets/images/icons.svg#route" /></svg>
+              Xem lộ trình
+            </button>
+            <div>
+              <button class="btn" data-employee-report>
+                <svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>
+                Xem báo cáo
+              </button>
+              <button class="btn" data-modal-close>
+                <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+                Chi tiết cửa hàng
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="toast"></div>
+    </main>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

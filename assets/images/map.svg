@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 520">
+  <rect width="390" height="520" fill="#edf0ef"/>
+  <g fill="#d7dcda" opacity=".76">
+    <path d="M9 12h67v39H9zM92 6h59v56H92zM166 0h58v46h-58zM239 10h63v51h-63zM318 0h64v66h-64z"/>
+    <path d="M0 88h53v68H0zM68 81h86v48H68zM173 75h73v74h-73zM269 80h48v62h-48zM335 91h55v61h-55z"/>
+    <path d="M8 181h71v45H8zM97 164h61v75H97zM180 177h57v63h-57zM256 168h67v68h-67zM342 177h48v51h-48z"/>
+    <path d="M0 270h69v62H0zM87 259h74v51H87zM182 270h50v66h-50zM253 257h56v63h-56zM332 262h58v71h-58z"/>
+    <path d="M7 359h61v63H7zM86 344h60v74H86zM164 361h74v59h-74zM258 350h53v72h-53zM335 353h55v68h-55z"/>
+    <path d="M0 447h72v73H0zM91 448h68v72H91zM181 441h57v79h-57zM258 448h62v72h-62zM339 442h51v78h-51z"/>
+  </g>
+  <g fill="#bdecc8"><path d="m21 52 58 28-31 64-48-26z"/><path d="m284 286 81 9-10 69-70-7z"/><path d="m108 385 49 22-28 58-54-25z"/><path d="m303 48 58 18-17 42-66-20z"/></g>
+  <path d="M342-10c-8 72 8 106-7 166-15 61-39 109-24 175 10 47 33 99 20 199" fill="none" stroke="#8ed2ec" stroke-width="25" opacity=".9"/>
+  <path d="M342-10c-8 72 8 106-7 166-15 61-39 109-24 175 10 47 33 99 20 199" fill="none" stroke="#c8effc" stroke-width="10" opacity=".8"/>
+  <g fill="none" stroke="#fff" stroke-linecap="round">
+    <path d="M-30 72C95 95 230 63 420 101" stroke-width="15"/><path d="M-20 250C100 220 259 243 420 201" stroke-width="18"/><path d="M-20 415C110 365 245 420 425 374" stroke-width="17"/>
+    <path d="M57-20C75 109 38 253 74 548" stroke-width="16"/><path d="M173-20c-15 136 21 276-8 560" stroke-width="18"/><path d="M272-20c20 128-31 289 4 550" stroke-width="14"/>
+    <path d="M-20 492 400 17" stroke-width="20"/>
+  </g>
+  <g fill="none" stroke="#d1d6d4" stroke-width="2">
+    <path d="M-30 72C95 95 230 63 420 101"/><path d="M-20 250C100 220 259 243 420 201"/><path d="M-20 415C110 365 245 420 425 374"/><path d="M57-20C75 109 38 253 74 548"/><path d="M173-20c-15 136 21 276-8 560"/><path d="M-20 492 400 17"/>
+  </g>
+  <g fill="#cfd5d2" opacity=".8"><rect x="94" y="111" width="55" height="34" rx="2"/><rect x="193" y="113" width="38" height="42" rx="2"/><rect x="92" y="278" width="52" height="40" rx="2"/><rect x="197" y="355" width="43" height="40" rx="2"/></g>
+</svg>

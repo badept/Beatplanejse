@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tổng quan bản đồ</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+
+<body class="overview-page">
+    <main class="phone premium-phone">
+        <div class="statusbar">
+            <span>09:41</span>
+            <span class="status-right">
+          <i class="signal"><i></i><i></i><i></i></i>
+          <i class="wifi"></i>
+          <i class="battery"></i>
+        </span>
+        </div>
+
+        <header class="appbar overview-appbar">
+            <button class="icon-btn" data-back data-href="index.html" aria-label="Quay lại">
+          <svg class="ico"><use href="assets/images/icons.svg#back" /></svg>
+        </button>
+            <h1>View Map</h1>
+            <div class="app-actions">
+                <button class="icon-btn" data-href="06-filters.html" aria-label="Bộ lọc">
+            <svg class="ico"><use href="assets/images/icons.svg#filter" /></svg>
+          </button>
+                <button class="icon-btn" data-action data-message="Đã làm mới bản đồ" aria-label="Làm mới">
+            <svg class="ico">
+              <use href="assets/images/icons.svg#refresh" />
+            </svg>
+          </button>
+            </div>
+        </header>
+
+        <section class="content overview-content">
+            <div class="toolbar overview-toolbar">
+                <span class="toolbar-spacer"></span>
+
+                <button class="tool-btn target-button" data-map-locate aria-label="Vị trí của tôi">
+            <svg class="ico"><use href="assets/images/icons.svg#target" /></svg>
+          </button>
+
+                <div class="view-switch" aria-label="Kiểu hiển thị">
+                    <button class="tool-btn active" aria-label="Bản đồ">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#route" />
+              </svg>
+            </button>
+                    <button class="tool-btn" data-href="03-working-employees.html" aria-label="Danh sách">
+              <svg class="ico"><use href="assets/images/icons.svg#list" /></svg>
+            </button>
+                </div>
+            </div>
+
+            <div class="map map-photo map-user-centered" data-zoom="15">
+                <div class="map-zoom-level" aria-live="polite">Zoom: <b>15</b></div>
+                <div class="named-pin employee-pin pin-an" data-visit-status="in-progress" data-modal-target="employee-info-modal" data-focus="an" data-name="Nguyễn Văn An" data-avatar="assets/images/avatar-an.svg" data-status="Đang làm việc" data-status-class="green"
+                    data-store="CH An Phú" data-gps="09:12 (29 phút trước)" role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#person" />
+              </svg>
+            </span>
+                    <span class="pin-label">An</span>
+                </div>
+
+                <div class="named-pin employee-pin pin-huy" data-visit-status="pending" data-modal-target="employee-info-modal" data-focus="huy" data-name="Lê Văn Huy" data-avatar="assets/images/avatar-huy.svg" data-status="Đang làm việc" data-status-class="green" data-store="CH Minh Khai"
+                    data-gps="09:28 (13 phút trước)" role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#person" />
+              </svg>
+            </span>
+                    <span class="pin-label">Huy</span>
+                </div>
+
+                <div class="named-pin employee-pin pin-binh" data-visit-status="complete" data-modal-target="employee-info-modal" data-focus="binh" data-name="Trần Văn Bình" data-avatar="assets/images/avatar-binh.svg" data-status="Đang làm việc" data-status-class="green"
+                    data-store="CH Hoàng Diệu" data-gps="Chưa có dữ liệu" role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#person" />
+              </svg>
+            </span>
+                    <span class="pin-label">Bình</span>
+                </div>
+
+                <div class="store-map-pin store-one" data-modal-target="store-info-modal" data-focus="store-one" data-store-id="an-phu" data-store-name="CH An Phú" data-store-code="CH001" data-store-address="Số 123 Nguyễn Văn Linh, P. Tân Phú, Q.7, TP. Hồ Chí Minh" data-store-distance="30 m"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#store" />
+              </svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-two" data-modal-target="store-info-modal" data-focus="store-two" data-store-id="minh-tam" data-store-name="CH Minh Tâm" data-store-code="CH002" data-store-address="45 Lê Lợi, P. Bến Thành, Q.1, TP. Hồ Chí Minh" data-store-distance="1,2 km"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#store" />
+              </svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-three" data-modal-target="store-info-modal" data-focus="store-three" data-store-id="hoang-dieu" data-store-name="CH Hoàng Diệu" data-store-code="CH003" data-store-address="88 Hoàng Diệu, P.13, Q.4, TP. Hồ Chí Minh" data-store-distance="2,1 km"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico">
+                <use href="assets/images/icons.svg#store" />
+              </svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-four" data-modal-target="store-info-modal" data-focus="store-four" data-store-id="nguyen-van-linh" data-store-name="CH Nguyễn Văn Linh" data-store-code="CH004" data-store-address="210 Nguyễn Văn Linh, Q.7, TP. Hồ Chí Minh"
+                    data-store-distance="850 m" role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-five" data-modal-target="store-info-modal" data-focus="store-five" data-store-id="phu-my" data-store-name="CH Phú Mỹ" data-store-code="CH005" data-store-address="12 Phạm Hữu Lầu, P. Phú Mỹ, Q.7" data-store-distance="2,8 km"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-six" data-modal-target="store-info-modal" data-focus="store-six" data-store-id="tan-thuan" data-store-name="CH Tân Thuận" data-store-code="CH006" data-store-address="35 Huỳnh Tấn Phát, P. Tân Thuận Đông, Q.7" data-store-distance="3,4 km"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-seven" data-modal-target="store-info-modal" data-focus="store-seven" data-store-id="minh-khai" data-store-name="CH Minh Khai" data-store-code="CH007" data-store-address="102 Nguyễn Thị Minh Khai, Q.3, TP. Hồ Chí Minh" data-store-distance="4,1 km"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                </div>
+
+                <div class="store-map-pin store-eight" data-modal-target="store-info-modal" data-focus="store-eight" data-store-id="binh-phu" data-store-name="CH Bình Phú" data-store-code="CH008" data-store-address="76 Bình Phú, P.11, Q.6, TP. Hồ Chí Minh" data-store-distance="5,2 km"
+                    role="button" tabindex="0">
+                    <span class="pin-core">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                </div>
+
+                <button class="store-cluster cluster-north" data-store-cluster="north" aria-label="Cụm 3 cửa hàng">
+            <span>3</span>
+          </button>
+                <button class="store-cluster cluster-center" data-store-cluster="center" aria-label="Cụm 2 cửa hàng">
+            <span>2</span>
+          </button>
+                <button class="store-cluster cluster-south" data-store-cluster="south" aria-label="Cụm 3 cửa hàng">
+            <span>3</span>
+          </button>
+
+                <span class="location-radius" aria-hidden="true"></span>
+                <span class="me premium-me" aria-label="Vị trí của bạn"></span>
+                <span class="my-location-label">Vị trí của bạn</span>
+
+                <div class="zoom premium-zoom">
+                    <button data-map-zoom="in" aria-label="Phóng to">+</button>
+                    <button data-map-zoom="out" aria-label="Thu nhỏ">−</button>
+                </div>
+            </div>
+
+            <div class="overview overview-sheet">
+                <div class="sheet-grabber"></div>
+                <div class="map-status-legend" role="list" aria-label="Trạng thái cửa hàng">
+                    <span class="map-status-chip status-pending" role="listitem">Chưa thực hiện</span>
+                    <span class="map-status-chip status-in-progress" role="listitem">Đang thực hiện</span>
+                    <span class="map-status-chip status-complete" role="listitem">Thành công</span>
+                    <span class="map-status-chip status-failed" role="listitem">Không thành công</span>
+                </div>
+                <div class="stats premium-stats">
+                    <div class="stat" data-href="03-working-employees.html?view=all" role="button" tabindex="0">
+                        <svg class="ico">
+                <use href="assets/images/icons.svg#users" />
+              </svg>
+                        <b>21</b>
+                        <span>Nhân viên</span>
+                    </div>
+                    <div class="stat" data-href="03-working-employees.html" role="button" tabindex="0">
+                        <svg class="ico"><use href="assets/images/icons.svg#play" /></svg>
+                        <b>6</b>
+                        <span>Đang IN</span>
+                    </div>
+                    <div class="stat stat-out" data-href="05-location-status.html" role="button" tabindex="0">
+                        <svg class="ico">
+                <use href="assets/images/icons.svg#store" />
+              </svg>
+                        <b>6</b>
+                        <span>Hoàn thành</span>
+                    </div>
+                    <div class="stat stat-idle" data-href="07-idle-employees.html" role="button" tabindex="0">
+                        <svg class="ico">
+                <use href="assets/images/icons.svg#clock" />
+              </svg>
+                        <b>3</b>
+                        <span>Chưa làm việc</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="map-info-modal detail-sheet-modal employee-sheet-modal" id="employee-info-modal" hidden>
+            <button class="modal-backdrop" data-modal-close aria-label="Đóng thông tin nhân viên"></button>
+            <article class="map-info-card employee-detail-card" role="dialog" aria-modal="true" aria-labelledby="employee-modal-name">
+                <span class="employee-sheet-grabber"></span>
+                <button class="modal-close" data-modal-close aria-label="Đóng">
+            <svg class="ico"><use href="assets/images/icons.svg#close" /></svg>
+          </button>
+                <div class="modal-person">
+                    <img id="employee-modal-avatar" class="modal-avatar" src="assets/images/avatar-an.svg" alt="" />
+                    <div>
+                        <h2 id="employee-modal-name">Nguyễn Văn An</h2>
+                        <span id="employee-modal-status" class="badge green">Đang làm việc</span
+              >
+            </div>
+          </div>
+          <div class="employee-detail-meta">
+            <p>
+              <svg class="ico"><use href="assets/images/icons.svg#briefcase" /></svg>
+              <span>Ca làm việc: 08:00 - 17:00</span>
+                        </p>
+                        <p>
+                            <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+                            <span>Cửa hàng hiện tại: <b id="employee-modal-store">CH An Phú</b></span>
+                        </p>
+                    </div>
+
+                    <section class="employee-day-route">
+                        <h3>Lộ trình cửa hàng trong ngày (3 cửa hàng)</h3>
+                        <ol>
+                            <li data-href="04-store-detail.html?store=minh-khai" role="button" tabindex="0" aria-label="Xem chi tiết CH Minh Khai"><b>1</b><span>CH Minh Khai</span><small>08:20 – 09:05 ✓</small></li>
+                            <li class="current" data-href="04-store-detail.html?store=an-phu" role="button" tabindex="0" aria-label="Xem chi tiết cửa hàng hiện tại"><b>2</b><span id="employee-modal-route-store">CH An Phú (Hiện tại)</span><small>09:12 – ...</small></li>
+                            <li data-href="04-store-detail.html?store=hoang-dieu" role="button" tabindex="0" aria-label="Xem chi tiết CH Hoàng Diệu"><b>3</b><span>CH Hoàng Diệu (Dự kiến)</span><small>~ 10:30</small></li>
+                        </ol>
+                    </section>
+
+                    <div class="employee-tracking-info">
+                        <p>
+                            <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg>
+                            <span>GPS cập nhật gần nhất: <b id="employee-modal-gps">09:12 (29 phút trước)</b></span>
+                        </p>
+                        <p>
+                            <svg class="ico"><use href="assets/images/icons.svg#report" /></svg>
+                            <span>Báo cáo: Đã gửi 1/3 cửa hàng</span>
+                        </p>
+                        <p>
+                            <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg>
+                            <span>Chấm công: Đã Check-in lúc 08:02</span>
+                        </p>
+                    </div>
+
+                    <div class="employee-sheet-actions">
+                        <button class="btn primary" data-href="02-employee-route.html">
+              <svg class="ico"><use href="assets/images/icons.svg#route" /></svg>
+              Xem lộ trình
+            </button>
+                        <div>
+                            <button class="btn" data-employee-report>
+                <svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>
+                Xem báo cáo
+              </button>
+                            <button class="btn" data-href="04-store-detail.html">
+                <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+                Chi tiết cửa hàng
+              </button>
+                        </div>
+                    </div>
+            </article>
+            </div>
+
+            <div class="map-info-modal detail-sheet-modal store-sheet-modal" id="store-info-modal" hidden>
+                <button class="modal-backdrop" data-modal-close aria-label="Đóng thông tin cửa hàng"></button>
+                <article class="map-info-card store-detail-card" role="dialog" aria-modal="true" aria-labelledby="store-modal-name">
+                    <span class="employee-sheet-grabber"></span>
+                    <button class="modal-close" data-modal-close aria-label="Đóng">
+            <svg class="ico"><use href="assets/images/icons.svg#close" /></svg>
+          </button>
+                    <div class="modal-person">
+                        <span class="modal-store-icon">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                        <div>
+                            <span class="modal-eyebrow">Cửa hàng</span>
+                            <h2 id="store-modal-name">CH An Phú</h2>
+                            <small>Mã CH: <b id="store-modal-code">CH001</b></small>
+                        </div>
+                    </div>
+
+                    <div class="store-detail-list">
+                        <div>
+                            <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg>
+                            <span><small>Địa chỉ</small><b id="store-modal-address"
+                  >Số 123 Nguyễn Văn Linh, P. Tân Phú, Q.7, TP. Hồ Chí
+                  Minh</b
+                ></span
+              >
+            </div>
+            <div>
+              <svg class="ico"><use href="assets/images/icons.svg#route" /></svg>
+              <span
+                ><small>Khoảng cách đến cửa hàng</small
+                ><b id="store-modal-distance">30 m</b></span
+              >
+            </div>
+            <div>
+              <svg class="ico"><use href="assets/images/icons.svg#target" /></svg>
+              <span><small>Bán kính check-in</small><b>100 m</b></span>
+                        </div>
+                        <div>
+                            <svg class="ico"><use href="assets/images/icons.svg#users" /></svg>
+                            <span><small>Nhân viên liên quan</small><b>1 nhân viên</b></span>
+                        </div>
+                        <div>
+                            <svg class="ico"><use href="assets/images/icons.svg#check" /></svg>
+                            <span><small>Trạng thái check-in</small
+                ><b>SUP ở gần cửa hàng (≤ 100 m)</b></span
+              >
+            </div>
+          </div>
+
+          <button
+            class="btn primary store-sheet-action"
+            data-href="04-store-detail.html"
+          >
+            Xem chi tiết cửa hàng
+            <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+          </button>
+        </article>
+      </div>
+
+      <div
+        class="map-info-modal detail-sheet-modal cluster-list-modal"
+        id="cluster-store-list"
+        hidden
+      >
+        <button
+          class="modal-backdrop"
+          data-modal-close
+          aria-label="Đóng danh sách cửa hàng"
+        ></button>
+        <article
+          class="map-info-card cluster-list-card"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cluster-list-title"
+        >
+          <span class="employee-sheet-grabber"></span>
+                            <button class="modal-close" data-modal-close aria-label="Đóng">
+            <svg class="ico"><use href="assets/images/icons.svg#close" /></svg>
+          </button>
+                            <div class="cluster-list-heading">
+                                <span class="modal-store-icon">
+              <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
+            </span>
+                                <div>
+                                    <span class="modal-eyebrow">Cụm cửa hàng</span>
+                                    <h2 id="cluster-list-title">3 cửa hàng gần nhau</h2>
+                                    <small>Chọn cửa hàng để xem vị trí và thông tin</small>
+                                </div>
+                            </div>
+                            <div class="cluster-store-items" id="cluster-store-items"></div>
+                </article>
+                </div>
+
+                <div class="toast"></div>
+    </main>
+
+    <script src="assets/js/app.js"></script>
+</body>
+
+</html>
