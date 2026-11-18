@@ -584,6 +584,11 @@
                          color: #08a23c;
                          background: #e2f8e9;
                      }
+
+                     .badge.blue {
+                         color: #0878d9;
+                         background: #e4f1ff;
+                     }
                      
                      .badge.orange {
                          color: #d98200;
@@ -635,6 +640,11 @@
                          display: block;
                          margin: 6px 0 3px;
                      }
+
+                     .store-employee-filters { display: flex; gap: 5px; margin: 4px 0 1px; }
+                     .store-employee-filters button { padding: 3px 7px; border: 1px solid #d6e1db; border-radius: 999px; color: #77847e; background: #f7faf8; font-size: 8px; font-weight: 750; cursor: pointer; }
+                     .store-employee-filters button.working.is-active { border-color: #9ecbfa; color: #0878d9; background: #e8f3ff; }
+                     .store-employee-filters button.complete.is-active { border-color: #9adbb8; color: #078f38; background: #e7f8ed; }
                      
                      .route-list {
                          list-style: none;
@@ -668,8 +678,34 @@
                          font-size: 8px;
                          color: #2f3a35;
                      }
+
+                     .route-detail-list .route-leg {
+                         min-height: 20px;
+                         grid-template-columns: 18px minmax(0, 1fr);
+                         color: #647069;
+                         cursor: default;
+                         font-size: 8px;
+                         font-weight: 700;
+                     }
+
+                     .route-detail-list .route-leg i {
+                         width: 0;
+                         height: 20px;
+                         justify-self: center;
+                         border-left: 1.5px dashed #9ca9a2;
+                     }
+
+                     .route-detail-list .route-leg em {
+                         color: #8a9690;
+                         font-size: 7px;
+                         font-style: normal;
+                     }
+
+                     .route-detail-list .route-leg.pending i {
+                         border-color: #a8c6e6;
+                     }
                      
-                     .route-list li:nth-child(2) {
+                     .route-list:not(.route-detail-list) li:nth-child(2) {
                          color: #078f38;
                          font-weight: 700;
                      }
@@ -708,6 +744,16 @@
                      
                      .btn-row .wide {
                          grid-column: 1/-1;
+                     }
+
+                     .route-report-row {
+                         grid-template-columns: 1fr;
+                         justify-items: center;
+                         margin-top: 10px;
+                     }
+
+                     .route-report-row .btn {
+                         width: min(190px, 62%);
                      }
                      
                      .search {
@@ -832,6 +878,17 @@
                          top: 50%;
                          translate: -50% -50%;
                      }
+
+                     .store-map .marker.store {
+                         left: 50%;
+                         top: 50%;
+                         translate: -50% -50%;
+                     }
+
+                     .store-panel .info-line:first-child span {
+                         white-space: nowrap;
+                         font-size: 8px;
+                     }
                      
                      .store-panel {
                          position: relative;
@@ -892,7 +949,7 @@
                      
                      .employee {
                          display: grid;
-                         grid-template-columns: 33px 1fr 17px;
+                         grid-template-columns: 33px minmax(0, 1fr) auto 17px;
                          gap: 7px;
                          align-items: center;
                          padding: 6px 0;
@@ -908,6 +965,8 @@
                          width: 16px;
                          height: 16px;
                      }
+
+                     .employee-time { color: #68766e; font-size: 7px; font-weight: 700; white-space: nowrap; }
                      
                      .bottom-actions {
                          position: absolute;
@@ -1007,12 +1066,20 @@
                          color: #d98200;
                      }
 
-                     .completed-card .card-head>.ico { color: #d98200; }
-                     .completed-avatar { display: grid; color: #c46f00; background: #fff0d8; font-size: 11px; font-weight: 750; place-items: center; }
-                     .complete-legend i { background: #d98200; }
+                     .completed-card .card-head>.ico { color: #00995c; }
+                     .completed-avatar { display: grid; color: #078f38; background: #e2f8e9; font-size: 11px; font-weight: 750; place-items: center; }
+                     .complete-legend i { background: #00995c; }
                      .completed-total-link { display: grid; grid-template-columns: 17px 1fr 15px; gap: 6px; align-items: center; width: 100%; padding: 4px 0; border: 0; color: #46534c; background: transparent; font-size: 9px; text-align: left; }
-                     .completed-total-link b { color: #d98200; }
+                     .completed-total-link b { color: #00995c; }
                      .completed-total-link .ico { width: 15px; height: 15px; color: #008b52; }
+                     .completed-total-link[aria-expanded="true"] .ico:last-child { transform: rotate(90deg); }
+                     .completed-store-inline-list { display: grid; gap: 4px; margin: 5px 0 0 23px; padding: 6px 0 1px; border-top: 1px dashed #dbe7df; list-style: none; }
+                     .completed-store-inline-list[hidden] { display: none; }
+                     .completed-store-inline-list li { margin: 0; padding: 0; }
+                     .completed-store-inline-list button { display: grid; grid-template-columns: 15px 1fr 13px; gap: 6px; align-items: center; width: 100%; padding: 1px 0; border: 0; color: #527064; background: transparent; font-size: 8.5px; font-weight: 700; text-align: left; cursor: pointer; }
+                     .completed-store-inline-list button:hover { color: #008b52; }
+                     .completed-store-inline-list i { display: grid; width: 14px; height: 14px; border-radius: 50%; color: #fff; background: #00a765; font-size: 7px; font-style: normal; place-items: center; }
+                     .completed-store-inline-list .ico { width: 12px; height: 12px; color: #00a765; }
                      .completed-stores-page { min-height: 100%; padding: 10px; background: #fff; }
                      .completed-employee { display: grid; grid-template-columns: 38px 1fr; gap: 8px; align-items: center; padding: 9px; border: 1px solid #dce8e1; border-radius: 9px; background: #f7fbf8; }
                      .completed-employee b, .completed-employee small { display: block; }
@@ -1023,9 +1090,9 @@
                      .completed-store-list button { display: grid; grid-template-columns: 22px 1fr 16px; gap: 7px; align-items: center; width: 100%; padding: 9px; border: 0; border-bottom: 1px solid #e5ebe7; color: #2f3a34; background: #fff; text-align: left; }
                      .completed-store-list button:last-child { border: 0; }
                      .completed-store-list i { display: grid; width: 20px; height: 20px; border-radius: 50%; color: #fff; font-size: 9px; font-style: normal; font-weight: 700; place-items: center; }
-                     .completed-store-list .is-complete i { background: #e88a00; }
-                     .completed-store-list .is-complete b { color: #c97500; }
-                     .completed-store-list .is-complete .ico { color: #d98200; }
+                     .completed-store-list .is-complete i { background: #00a765; }
+                     .completed-store-list .is-complete b { color: #078f38; }
+                     .completed-store-list .is-complete .ico { color: #00995c; }
                      .completed-store-list .is-pending { cursor: default; color: #8b9690; background: #f6f7f6; }
                      .completed-store-list .is-pending i { background: #aeb7b2; }
                      .completed-store-list .is-pending b, .completed-store-list .is-pending small, .completed-store-list .is-pending .ico { color: #8b9690; }
@@ -2515,6 +2582,37 @@
                          color: #536059;
                          font-size: 8px;
                      }
+
+                     .employee-day-route .route-leg {
+                         min-height: 20px;
+                         grid-template-columns: 18px minmax(0, 1fr);
+                         color: #77847d;
+                         cursor: default;
+                         font-size: 8px;
+                     }
+
+                     .employee-day-route .route-leg i {
+                         width: 0;
+                         height: 20px;
+                         justify-self: center;
+                         border-left: 1.5px dashed #9ca9a2;
+                     }
+
+                     .employee-day-route .route-leg span {
+                         color: #647069;
+                         font-weight: 700;
+                     }
+
+                     .employee-day-route .route-leg em {
+                         color: #8a9690;
+                         font-size: 7px;
+                         font-style: normal;
+                         white-space: nowrap;
+                     }
+
+                     .employee-day-route .route-leg.pending i {
+                         border-color: #a8c6e6;
+                     }
                      
                      .employee-day-route li.current>span {
                          color: #00995c;
@@ -2643,6 +2741,11 @@
                          color: #26312b;
                          font-size: 11px;
                          line-height: 1.28;
+                     }
+
+                     .store-detail-list #store-modal-address {
+                         white-space: nowrap;
+                         font-size: 8px;
                      }
                      
                      .store-sheet-action {
@@ -3160,13 +3263,20 @@
                          font-size: 11px;
                          font-weight: 800;
                          line-height: 1.15;
-                         pointer-events: none;
+                         cursor: pointer;
+                         pointer-events: auto;
+                         text-align: left;
                      }
 
                      .overview-page .map-area-label small {
                          color: #527064;
                          font-size: 9px;
                          font-weight: 700;
+                     }
+
+                     .overview-page .map-area-label.is-active {
+                         outline: 2px solid #00a85a;
+                         outline-offset: 2px;
                      }
 
                      .overview-page .area-thu-duc {
@@ -3269,4 +3379,182 @@
                          opacity: 0;
                          visibility: hidden;
                          pointer-events: none;
+                     }
+
+                     /* Store-pin color always matches the status filters below the map. */
+                     .overview-page .store-map-pin[data-visit-status="pending"] .pin-core {
+                         background: linear-gradient(145deg, #ffc247, #e89a00);
+                     }
+
+                     .overview-page .store-map-pin[data-visit-status="in-progress"] .pin-core {
+                         background: linear-gradient(145deg, #53a7ff, #176bd1);
+                     }
+
+                     .overview-page .store-map-pin[data-visit-status="complete"] .pin-core {
+                         background: linear-gradient(145deg, #38c879, #008f4d);
+                     }
+
+                     .overview-page .store-map-pin[data-visit-status="failed"] .pin-core {
+                         background: linear-gradient(145deg, #ff7468, #d63832);
+                     }
+
+                     .overview-page .employee-pin .pin-core {
+                         background: linear-gradient(145deg, #aeb8b3, #68736d);
+                     }
+
+                     .overview-page .map-photo[data-area-focus] :is(.store-map-pin, .employee-pin).is-outside-area {
+                         opacity: 0.12;
+                         filter: grayscale(0.7);
+                         pointer-events: none;
+                     }
+
+                     /* A selected filter area remains visibly outlined after the map zooms in. */
+                     .overview-page .map-photo[data-area-focus]::after {
+                         content: "";
+                         position: absolute;
+                         z-index: 3;
+                         border: 2px dashed #0878d9;
+                         border-radius: 46%;
+                         background: #0878d914;
+                         box-shadow: 0 0 0 5px #ffffff90;
+                         pointer-events: none;
+                     }
+
+                     .overview-page .map-photo[data-area-focus="thu-duc"]::after {
+                         top: 8%;
+                         right: 4%;
+                         width: 39%;
+                         height: 75%;
+                     }
+
+                     .overview-page .map-photo[data-area-focus="binh-thanh"]::after {
+                         top: 13%;
+                         left: 4%;
+                         width: 40%;
+                         height: 72%;
+                     }
+
+                     /* Additional stores in each area. */
+                     .overview-page .store-nine { top: 13%; left: 79%; }
+                     .overview-page .store-eleven { top: 39%; left: 82%; }
+                     .overview-page .store-thirteen { top: 59%; left: 64%; }
+                     .overview-page .store-fifteen { top: 68%; left: 78%; }
+                     .overview-page .store-ten { top: 19%; left: 19%; }
+                     .overview-page .store-twelve { top: 38%; left: 8%; }
+                     .overview-page .store-fourteen { top: 51%; left: 39%; }
+                     .overview-page .store-sixteen { top: 72%; left: 14%; }
+
+                     /* At a wide zoom, collapse the 80 stores into one count per area. */
+                     .overview-page .map-photo.zoom-clustered .store-map-pin {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
+                     }
+
+                     .overview-page .map-photo.zoom-clustered .store-cluster {
+                         opacity: 1;
+                         visibility: visible;
+                         pointer-events: auto;
+                         transform: scale(1);
+                     }
+
+                     .overview-page .cluster-north { top: 39%; left: 75%; }
+                     .overview-page .cluster-center { top: 47%; left: 24%; }
+
+                     /* Progressive grouping: 40 at wide view, groups of 5 in the
+                        middle, and each scattered store once the user zooms close. */
+                     .overview-page .map-photo.zoom-clustered .sub-cluster {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
+                         transform: scale(.7);
+                     }
+
+                     .overview-page .map-photo:is([data-zoom="14"], [data-zoom="15"]) .store-map-pin,
+                     .overview-page .map-photo:is([data-zoom="14"], [data-zoom="15"]) .store-cluster:not(.sub-cluster) {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
+                         transform: scale(.7);
+                     }
+
+                     .overview-page .map-photo:is([data-zoom="14"], [data-zoom="15"]) .sub-cluster {
+                         opacity: 1;
+                         visibility: visible;
+                         pointer-events: auto;
+                         transform: scale(1);
+                     }
+
+                     .overview-page .sub-cluster {
+                         width: 34px;
+                         height: 34px;
+                         border-color: #ffffff;
+                         background: #087bd8;
+                         box-shadow: 0 3px 10px #075b9a66;
+                     }
+
+                     .overview-page .generated-store .store-pin-label {
+                         display: none !important;
+                     }
+
+                     .overview-page .generated-store .pin-core {
+                         width: 26px;
+                         height: 26px;
+                         border-width: 2px;
+                     }
+
+                     .overview-page .generated-store .pin-core .ico {
+                         width: 14px;
+                         height: 14px;
+                     }
+
+                     /* Citywide context: the Saigon River separates Bình Thạnh and Thủ Đức. */
+                     .overview-page .map-photo.map-citywide {
+                         background-image: linear-gradient(#ffffff10, #ffffff10), url("../images/map-city.png");
+                         background-position: calc(58% + var(--map-pan-x, 0px)) calc(28% + var(--map-pan-y, 0px));
+                         background-size: var(--map-zoom-size, 161%);
+                     }
+
+                     .overview-page .morning-star-landmark {
+                         position: absolute;
+                         z-index: 5;
+                         top: 47%;
+                         left: 25%;
+                         display: flex;
+                         align-items: center;
+                         gap: 5px;
+                         color: #24342d;
+                         font-size: 8px;
+                         font-weight: 800;
+                         pointer-events: none;
+                         transform: translate(-50%, -50%);
+                     }
+
+                     .overview-page .morning-star-landmark>b {
+                         display: grid;
+                         width: 25px;
+                         height: 25px;
+                         border: 2px solid #ffffff;
+                         border-radius: 50%;
+                         color: #ffffff;
+                         background: #5c6770;
+                         box-shadow: 0 2px 7px #162d2452;
+                         font-size: 13px;
+                         place-items: center;
+                     }
+
+                     .overview-page .morning-star-landmark>span {
+                         padding: 5px 7px;
+                         border-radius: 7px;
+                         background: #ffffffed;
+                         box-shadow: 0 2px 7px #153b2930;
+                         white-space: nowrap;
+                     }
+
+                     .overview-page .morning-star-landmark small {
+                         display: block;
+                         margin-top: 2px;
+                         color: #66746d;
+                         font-size: 7px;
+                         font-weight: 700;
                      }

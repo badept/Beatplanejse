@@ -31,6 +31,14 @@ document.querySelectorAll('use[href*="icons.svg#"]').forEach((use) => {
     use.setAttribute("href", `#${use.getAttribute("href").split("#")[1]}`);
 });
 
+function goBack(fallback = "01-map-overview.html") {
+    if (window.history.length > 1) {
+        window.history.back();
+        return;
+    }
+    window.location.href = fallback;
+}
+
 const storeClusters = {
     north: ["an-phu", "minh-tam", "nguyen-van-linh"],
     center: ["hoang-dieu", "phu-my"],
@@ -38,9 +46,22 @@ const storeClusters = {
 };
 
 const mapAreas = {
-    "thu-duc": { name: "Quận Thủ Đức", employees: 11, stores: 4 },
-    "binh-thanh": { name: "Quận Bình Thạnh", employees: 10, stores: 4 },
+    "thu-duc": { name: "Quận Thủ Đức", employees: 12, stores: 40, stats: { plane: 12, working: 4, completed: 4, idle: 2 } },
+    "binh-thanh": { name: "Quận Bình Thạnh", employees: 9, stores: 40, stats: { plane: 9, working: 2, completed: 2, idle: 1 } },
 };
+const overallMapStats = { plane: 21, working: 6, completed: 6, idle: 3 };
+
+function setMapAreaStats(phone, areaKey) {
+    if (!phone) return;
+    const stats = areaKey ? mapAreas[areaKey]?.stats : overallMapStats;
+    if (!stats) return;
+
+    phone.querySelectorAll("[data-map-stat]").forEach((stat) => {
+        const value = stats[stat.dataset.mapStat];
+        const number = stat.querySelector("b");
+        if (number && Number.isFinite(value)) number.textContent = String(value);
+    });
+}
 
 function fillAreaSummary(modal, trigger) {
     const area = mapAreas[trigger.dataset.area];
@@ -62,6 +83,154 @@ function fillAreaSummary(modal, trigger) {
     summary.hidden = false;
     summary.innerHTML = `<span>Khu vực ${area.name}</span><b>${area.employees} Plane · ${area.stores} cửa hàng</b>`;
 }
+
+function addMapStores() {
+    const map = document.querySelector(".overview-page .map");
+    if (!map || map.querySelector("[data-store-id='thu-duc-01']")) return;
+
+    // A fixed shuffled order avoids a visual stripe of the same colour.
+    const statusOrder = [
+        "complete", "pending", "failed", "in-progress", "pending", "complete", "in-progress", "failed",
+        "in-progress", "failed", "pending", "complete", "failed", "complete", "pending", "in-progress",
+        "pending", "in-progress", "complete", "failed", "complete", "failed", "in-progress", "pending",
+        "failed", "pending", "complete", "in-progress", "in-progress", "complete", "failed", "pending",
+    ];
+    // Deliberately uneven points so stores feel naturally scattered, not gridded.
+    const scatterPoints = [
+        [0.06, 0.11], [0.45, 0.05], [0.23, 0.19], [0.79, 0.12],
+        [0.94, 0.27], [0.11, 0.33], [0.61, 0.29], [0.34, 0.40],
+        [0.72, 0.45], [0.02, 0.52], [0.51, 0.56], [0.88, 0.60],
+        [0.20, 0.67], [0.39, 0.74], [0.66, 0.70], [0.97, 0.79],
+        [0.08, 0.87], [0.28, 0.92], [0.56, 0.84], [0.81, 0.94],
+        [0.15, 0.04], [0.93, 0.08], [0.42, 0.25], [0.69, 0.36],
+        [0.30, 0.50], [0.57, 0.64], [0.84, 0.53], [0.04, 0.73],
+        [0.24, 0.80], [0.47, 0.97], [0.75, 0.86], [0.99, 0.44],
+    ];
+    const areaConfig = {
+        "thu-duc": {
+            prefix: "Thủ Đức",
+            start: 1,
+            bounds: [59, 93, 14, 82],
+        },
+        "binh-thanh": {
+            prefix: "Bình Thạnh",
+            start: 1,
+            bounds: [4, 40, 14, 82],
+        },
+    };
+
+    Object.entries(areaConfig).forEach(([area, config]) => {
+        for (let index = 0; index < 32; index += 1) {
+            const number = String(config.start + index).padStart(2, "0");
+            const marker = document.createElement("div");
+            marker.className = "store-map-pin generated-store";
+            const statusOffset = area === "thu-duc" ? 0 : 11;
+            marker.dataset.visitStatus = statusOrder[(index * 7 + statusOffset) % statusOrder.length];
+            marker.dataset.area = area;
+            marker.dataset.modalTarget = "store-info-modal";
+            marker.dataset.focus = `${area}-${number}`;
+            marker.dataset.storeId = `${area}-${number}`;
+            marker.dataset.storeName = `CH ${config.prefix} ${number}`;
+            marker.dataset.storeCode = `CH${area === "thu-duc" ? "TD" : "BT"}${number}`;
+            marker.dataset.storeAddress = `Khu vực ${config.prefix}, TP. Hồ Chí Minh`;
+            marker.dataset.storeDistance = `${(1 + index * 0.2).toFixed(1).replace(".", ",")} km`;
+            marker.setAttribute("role", "button");
+            marker.tabIndex = 0;
+            const [leftMin, leftMax, topMin, topMax] = config.bounds;
+            const [scatterX, scatterY] = scatterPoints[index];
+            const left = leftMin + (leftMax - leftMin) * scatterX;
+            const top = topMin + (topMax - topMin) * scatterY;
+            marker.style.left = `${left}%`;
+            marker.style.top = `${top}%`;
+            marker.innerHTML = '<span class="pin-core"><svg class="ico"><use href="#store" /></svg></span>';
+            map.append(marker);
+        }
+    });
+}
+
+addMapStores();
+
+function addMapEmployees() {
+    const map = document.querySelector(".overview-page .map");
+    if (!map || map.querySelector("[data-generated-employee]")) return;
+
+    const employees = [
+        ["Nguyễn Thị Mai", "thu-duc", 62, 17, "Mai"],
+        ["Phạm Quốc Bảo", "thu-duc", 80, 31, "Bảo"],
+        ["Võ Minh Tuấn", "binh-thanh", 25, 66, "Tuấn"],
+    ];
+
+    employees.forEach(([name, area, left, top, shortName], index) => {
+        const marker = document.createElement("div");
+        marker.className = "named-pin employee-pin generated-employee";
+        marker.dataset.generatedEmployee = "";
+        marker.dataset.area = area;
+        marker.dataset.visitStatus = "in-progress";
+        marker.dataset.modalTarget = "employee-info-modal";
+        marker.dataset.focus = `employee-${index + 4}`;
+        marker.dataset.name = name;
+        marker.dataset.avatar = ["assets/images/avatar-an.svg", "assets/images/avatar-binh.svg", "assets/images/avatar-huy.svg"][index % 3];
+        marker.dataset.status = "Đang làm việc";
+        marker.dataset.statusClass = "blue";
+        marker.dataset.store = `CH ${area === "thu-duc" ? "Thủ Đức" : "Bình Thạnh"} ${(index + 4).toString().padStart(2, "0")}`;
+        marker.dataset.gps = `${String(9 + (index % 2)).padStart(2, "0")}:${String(10 + index * 2).padStart(2, "0")} (vừa cập nhật)`;
+        marker.setAttribute("role", "button");
+        marker.tabIndex = 0;
+        marker.style.left = `${left}%`;
+        marker.style.top = `${top}%`;
+        marker.innerHTML = `<span class="pin-core"><svg class="ico"><use href="#person" /></svg></span><span class="pin-label">${name}</span>`;
+        map.append(marker);
+    });
+}
+
+addMapEmployees();
+
+// Keep the map readable at every distance: 80 individual stores at close zoom,
+// then groups of five, and finally one total per operational area.
+function addMapStoreGroups() {
+    const map = document.querySelector(".overview-page .map");
+    if (!map || map.querySelector(".store-cluster.sub-cluster")) return;
+
+    const groupPositions = {
+        "thu-duc": [
+            [63, 20], [73, 27], [84, 20], [92, 32],
+            [64, 55], [76, 66], [87, 56], [92, 76],
+        ],
+        "binh-thanh": [
+            [7, 21], [18, 31], [30, 20], [40, 33],
+            [8, 57], [18, 72], [30, 58], [40, 76],
+        ],
+    };
+
+    Object.entries(groupPositions).forEach(([area, positions]) => {
+        positions.forEach(([left, top], index) => {
+            const group = document.createElement("button");
+            group.type = "button";
+            group.className = "store-cluster sub-cluster";
+            group.dataset.mapArea = area;
+            group.style.left = `${left}%`;
+            group.style.top = `${top}%`;
+            group.setAttribute("aria-label", `Nhóm 5 cửa hàng ${index + 1} tại ${mapAreas[area].name}`);
+            group.innerHTML = "<span>5</span>";
+            map.append(group);
+        });
+    });
+}
+
+addMapStoreGroups();
+
+function updateMapClusterCounts(map, selectedStatuses = new Set()) {
+    map.querySelectorAll(".store-cluster[data-map-area]:not(.sub-cluster)").forEach((cluster) => {
+        const total = [...map.querySelectorAll(`.store-map-pin[data-area="${cluster.dataset.mapArea}"]`)]
+            .filter((store) => !selectedStatuses.size || selectedStatuses.has(store.dataset.visitStatus))
+            .length;
+        const count = cluster.querySelector("span");
+        if (count) count.textContent = String(total);
+        cluster.setAttribute("aria-label", `${total} cửa hàng tại ${mapAreas[cluster.dataset.mapArea]?.name || "khu vực"}`);
+    });
+}
+
+document.querySelectorAll(".overview-page .map").forEach((map) => updateMapClusterCounts(map));
 
 document.querySelectorAll(".store-map-pin[data-store-name]").forEach((marker) => {
     if (marker.querySelector(".store-pin-label")) return;
@@ -125,11 +294,57 @@ function setMapStatusFilter(control) {
         store.classList.toggle("is-status-filtered-out", isHidden);
     });
 
+    updateMapClusterCounts(map, selectedStatuses);
+
     sheet.querySelectorAll("[data-map-status-filter]").forEach((chip) => {
         const isActive = selectedStatuses.has(chip.dataset.mapStatusFilter);
         chip.classList.toggle("is-active", isActive);
         chip.setAttribute("aria-pressed", String(isActive));
     });
+}
+
+function focusMapArea(control) {
+    const map = control.closest(".map");
+    const areaKey = control.dataset.mapArea;
+    const area = mapAreas[areaKey];
+    if (!map || !area) return;
+
+    const shouldClear = map.dataset.areaFocus === areaKey;
+    if (shouldClear) {
+        delete map.dataset.areaFocus;
+        map.querySelectorAll(".store-map-pin, .employee-pin").forEach((marker) => marker.classList.remove("is-outside-area"));
+        map.querySelectorAll("[data-map-area]").forEach((label) => label.classList.remove("is-active"));
+        map.style.setProperty("--map-pan-x", "0px");
+        map.style.setProperty("--map-pan-y", "0px");
+        setMapAreaStats(map.closest(".phone"));
+        setMapZoom(map, 12);
+        return;
+    }
+
+    map.dataset.areaFocus = areaKey;
+    map.querySelectorAll(".store-map-pin, .employee-pin").forEach((marker) => {
+        marker.classList.toggle("is-outside-area", marker.dataset.area !== areaKey);
+    });
+    map.querySelectorAll("[data-map-area]").forEach((label) => {
+        label.classList.toggle("is-active", label === control);
+    });
+    map.style.setProperty("--map-pan-x", areaKey === "binh-thanh" ? "72px" : "-72px");
+    map.style.setProperty("--map-pan-y", "0px");
+    setMapAreaStats(map.closest(".phone"), areaKey);
+    setMapZoom(map, 16);
+}
+
+function getMapAreaKey(areaName = "") {
+    const normalized = String(areaName)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("vi")
+        .replace(/đ/g, "d")
+        .trim();
+
+    if (normalized.includes("binh thanh")) return "binh-thanh";
+    if (normalized.includes("thu duc")) return "thu-duc";
+    return "";
 }
 
 function enableMapPan(map) {
@@ -230,7 +445,7 @@ function fillEmployeeModal(modal, trigger) {
     const status = modal.querySelector("#employee-modal-status");
     if (status && trigger.dataset.status) {
         status.textContent = trigger.dataset.status;
-        status.classList.remove("green", "orange", "red");
+        status.classList.remove("green", "blue", "orange", "red");
         status.classList.add(trigger.dataset.statusClass || "green");
     }
 
@@ -298,7 +513,10 @@ function openInfoModal(trigger) {
     });
 
     if (trigger.dataset.name) fillEmployeeModal(modal, trigger);
-    if (trigger.dataset.storeName) fillStoreModal(modal, trigger);
+    if (trigger.dataset.storeName) {
+        fillStoreModal(modal, trigger);
+        setMapAreaStats(phone, trigger.dataset.area);
+    }
 
     const map = phone.querySelector(".map");
     if (map && trigger.dataset.focus) map.dataset.focus = trigger.dataset.focus;
@@ -412,6 +630,12 @@ function closeInfoModal(closeControl) {
 }
 
 document.addEventListener("click", (event) => {
+    const areaControl = event.target.closest("[data-map-area]");
+    if (areaControl) {
+        focusMapArea(areaControl);
+        return;
+    }
+
     const statusFilter = event.target.closest("[data-map-status-filter]");
     if (statusFilter) {
         setMapStatusFilter(statusFilter);
@@ -471,6 +695,10 @@ document.addEventListener("click", (event) => {
 
     const navigation = event.target.closest("[data-href], [data-back]");
     if (navigation) {
+        if (navigation.hasAttribute("data-back")) {
+            goBack(navigation.dataset.href);
+            return;
+        }
         location.href = navigation.dataset.href || "index.html";
         return;
     }
@@ -514,9 +742,13 @@ document.addEventListener("keydown", (event) => {
         return;
     }
 
-    const navigation = event.target.closest("[data-href]");
+    const navigation = event.target.closest("[data-href], [data-back]");
     if (!navigation) return;
     event.preventDefault();
+    if (navigation.hasAttribute("data-back")) {
+        goBack(navigation.dataset.href);
+        return;
+    }
     location.href = navigation.dataset.href;
 });
 
@@ -560,7 +792,7 @@ if (workingEmployeeList) {
         card.dataset.gps = lines[1]?.textContent.replace(/^GPS cập nhật\s*/, "").trim() || "Chưa có dữ liệu";
         card.dataset.avatar = avatar?.getAttribute("src") || "assets/images/avatar-an.svg";
         card.dataset.status = "Đang làm việc";
-        card.dataset.statusClass = "green";
+        card.dataset.statusClass = "blue";
     });
 }
 
@@ -590,6 +822,13 @@ document.querySelectorAll(".map[data-zoom]").forEach((map) => {
     setMapZoom(map, pageParams.get("zoom") || map.dataset.zoom);
     enableMapPan(map);
 });
+
+const requestedArea = getMapAreaKey(pageParams.get("area"));
+if (requestedArea) {
+    const map = document.querySelector(".overview-page .map");
+    const areaControl = map?.querySelector(`[data-map-area="${requestedArea}"]`);
+    if (areaControl) focusMapArea(areaControl);
+}
 
 const hashModalId = location.hash.slice(1);
 if (hashModalId) {
@@ -817,9 +1056,9 @@ if (activityDetail) {
 
 const requestedStore = pageParams.get("store")?.trim().toLocaleLowerCase("vi");
 const completionProfiles = {
-    mai: { name: "Nguyễn Thị Mai", initials: "NM", done: 3, total: 3 },
-    bao: { name: "Phạm Quốc Bảo", initials: "PB", done: 2, total: 3 },
-    tuan: { name: "Võ Minh Tuấn", initials: "VT", done: 4, total: 4 },
+    mai: { name: "Nguyễn Thị Mai", initials: "NM", done: 3, total: 3, monthlyLimit: 80 },
+    bao: { name: "Phạm Quốc Bảo", initials: "PB", done: 2, total: 2, monthlyLimit: 80 },
+    tuan: { name: "Võ Minh Tuấn", initials: "VT", done: 4, total: 4, monthlyLimit: 80 },
 };
 
 document.querySelectorAll(".completed-card").forEach((card) => {
@@ -828,8 +1067,32 @@ document.querySelectorAll(".completed-card").forEach((card) => {
     const profile = completionProfiles[profileKey];
     const link = card.querySelector(".completed-total-link");
     if (link) {
-        link.dataset.href = `12-completed-stores.html?employee=${profileKey}`;
-        link.querySelector("span").innerHTML = `<b>${profile.done}/${profile.total}</b> cửa hàng đã hoàn thành`;
+        const stores = [
+            ["CH An Phú", "an-phu"],
+            ["CH Minh Khai", "minh-khai"],
+            ["CH Hoàng Diệu", "hoang-dieu"],
+            ["CH Nguyễn Văn Linh", "nguyen-van-linh"],
+        ].slice(0, profile.total);
+        const storeList = document.createElement("ul");
+        storeList.className = "completed-store-inline-list";
+        storeList.hidden = true;
+        storeList.innerHTML = stores.map(([name, slug], index) =>
+            `<li><button type="button" data-href="04-store-detail.html?store=${slug}&employee=${profileKey}"><i>${index + 1}</i><span>${name}</span><svg class="ico"><use href="#chevron" /></svg></button></li>`,
+        ).join("");
+        link.removeAttribute("data-href");
+        link.setAttribute("aria-expanded", "false");
+        link.setAttribute("aria-label", `Xem ${profile.done} cửa hàng đã hoàn thành của ${profile.name}`);
+        link.querySelector("span").innerHTML = `<b>${profile.done}/${profile.total}</b> cửa hàng đã hoàn thành hôm nay`;
+        link.insertAdjacentElement("afterend", storeList);
+        link.addEventListener("click", () => {
+            const willOpen = link.getAttribute("aria-expanded") !== "true";
+            card.closest(".employee-list")?.querySelectorAll(".completed-total-link[aria-expanded='true']").forEach((openLink) => {
+                openLink.setAttribute("aria-expanded", "false");
+                openLink.nextElementSibling.hidden = true;
+            });
+            link.setAttribute("aria-expanded", String(willOpen));
+            storeList.hidden = !willOpen;
+        });
     }
 });
 
@@ -863,9 +1126,9 @@ if (completedStorePage) {
 const storeDetail = document.querySelector(".store-panel");
 if (storeDetail && requestedStore) {
     const storeDetails = {
-        "an-phu": { name: "CH An Phú", code: "CH001", address: "Số 123 Nguyễn Văn Linh, P. Tân Phú,<br>Q.7, TP. Hồ Chí Minh", distance: "30 m" },
-        "minh-khai": { name: "CH Minh Khai", code: "CH002", address: "Số 58 Minh Khai, P. Vĩnh Tuy,<br>Q. Hai Bà Trưng, Hà Nội", distance: "120 m" },
-        "hoang-dieu": { name: "CH Hoàng Diệu", code: "CH003", address: "Số 86 Hoàng Diệu, P. Hải Châu,<br>Q. Hải Châu, Đà Nẵng", distance: "65 m" },
+        "an-phu": { name: "CH An Phú", code: "CH001", address: "Số 123 Nguyễn Văn Linh, P. Tân Phú, Q.7, TP. Hồ Chí Minh", distance: "30 m" },
+        "minh-khai": { name: "CH Minh Khai", code: "CH002", address: "Số 58 Minh Khai, P. Vĩnh Tuy, Q. Hai Bà Trưng, Hà Nội", distance: "120 m" },
+        "hoang-dieu": { name: "CH Hoàng Diệu", code: "CH003", address: "Số 86 Hoàng Diệu, P. Hải Châu, Q. Hải Châu, Đà Nẵng", distance: "65 m" },
     };
     const detail = storeDetails[requestedStore];
     if (detail) {
@@ -885,11 +1148,24 @@ if (storeDetail && completionProfiles[requestedEmployee]) {
     const employeeRows = storeDetail.querySelectorAll(":scope > .employee");
     employeeRows.forEach((row) => { row.remove(); });
     if (heading) {
-        heading.textContent = "Nhân viên hoàn thành tại cửa hàng (1)";
-        const completedEmployee = document.createElement("div");
-        completedEmployee.className = "employee";
-        completedEmployee.innerHTML = `<span class="avatar completed-avatar">${completedProfile.initials}</span><div><b style="font-size: 10px">${completedProfile.name}</b><br /><span class="badge orange">Hoàn thành</span></div><svg class="ico"><use href="#chevron" /></svg>`;
-        heading.insertAdjacentElement("afterend", completedEmployee);
+        const otherWorkers = [
+            { name: "Nguyễn Văn An", initials: "NA", status: "Đang làm việc", statusClass: "blue", time: "IN 08:02 · Đang làm" },
+            { name: "Phạm Quốc Bảo", initials: "PB", status: "Hoàn thành", statusClass: "green", time: "IN 08:00 · OUT 09:05" },
+            { name: "Lê Văn Huy", initials: "LH", status: "Hoàn thành", statusClass: "green", time: "IN 09:12 · OUT 09:38" },
+        ].filter((worker) => worker.name !== completedProfile.name);
+        const workers = [
+            { name: completedProfile.name, initials: completedProfile.initials, status: "Hoàn thành", statusClass: "green", time: "IN 08:00 · OUT 09:05" },
+            ...otherWorkers,
+        ];
+
+        heading.textContent = `Nhân viên đã làm tại cửa hàng (${workers.length})`;
+        workers.slice().reverse().forEach((worker) => {
+            const employee = document.createElement("div");
+            employee.className = "employee";
+            employee.dataset.employeeWorkStatus = worker.statusClass === "blue" ? "working" : "complete";
+            employee.innerHTML = `<span class="avatar completed-avatar">${worker.initials}</span><div><b style="font-size: 10px">${worker.name}</b><br /><span class="badge ${worker.statusClass}">${worker.status}</span></div><small class="employee-time">${worker.time}</small><svg class="ico"><use href="#chevron" /></svg>`;
+            heading.insertAdjacentElement("afterend", employee);
+        });
     }
     const employeeReportButton = document.querySelector("[data-store-employee-report]");
     if (employeeReportButton) {
@@ -897,6 +1173,59 @@ if (storeDetail && completionProfiles[requestedEmployee]) {
         employeeReportButton.innerHTML = '<svg class="ico"><use href="#chart" /></svg>Xem báo cáo nhân viên';
     }
 }
+
+function setupStoreEmployeeFilters(panel) {
+    const heading = panel?.querySelector(".subheading");
+    if (!heading || panel.querySelector(".store-employee-filters")) return;
+
+    const times = {
+        "Nguyễn Văn An": "IN 08:02 · Đang làm",
+        "Phạm Quốc Bảo": "IN 08:00 · OUT 09:05",
+        "Lê Văn Huy": "IN 09:12 · OUT 09:38",
+        "Nguyễn Thị Mai": "IN 08:20 · OUT 09:05",
+        "Võ Minh Tuấn": "IN 08:10 · OUT 09:00",
+    };
+    const employees = [...panel.querySelectorAll(":scope > .employee")];
+    const filters = document.createElement("div");
+    filters.className = "store-employee-filters";
+    filters.setAttribute("role", "group");
+    filters.setAttribute("aria-label", "Lọc trạng thái nhân viên");
+    filters.innerHTML = '<button type="button" class="is-active working" data-store-employee-filter="working" aria-pressed="true">Đang làm việc</button><button type="button" class="is-active complete" data-store-employee-filter="complete" aria-pressed="true">Hoàn thành</button>';
+    heading.insertAdjacentElement("afterend", filters);
+
+    employees.forEach((employee) => {
+        const badge = employee.querySelector(".badge");
+        const status = employee.dataset.employeeWorkStatus || (badge?.classList.contains("blue") ? "working" : "complete");
+        employee.dataset.employeeWorkStatus = status;
+        if (!employee.querySelector(".employee-time")) {
+            const name = employee.querySelector("b")?.textContent.trim();
+            const time = document.createElement("small");
+            time.className = "employee-time";
+            time.textContent = times[name] || (status === "working" ? "IN 08:02 · Đang làm" : "IN 08:00 · OUT 09:05");
+            employee.insertBefore(time, employee.querySelector(":scope > .ico"));
+        }
+    });
+
+    const selected = new Set(["working", "complete"]);
+    filters.addEventListener("click", (event) => {
+        const filter = event.target.closest("[data-store-employee-filter]");
+        if (!filter) return;
+        const status = filter.dataset.storeEmployeeFilter;
+        if (selected.has(status)) selected.delete(status);
+        else selected.add(status);
+        filters.querySelectorAll("[data-store-employee-filter]").forEach((button) => {
+            const active = selected.has(button.dataset.storeEmployeeFilter);
+            button.classList.toggle("is-active", active);
+            button.setAttribute("aria-pressed", String(active));
+        });
+        employees.forEach((employee) => {
+            employee.hidden = !selected.has(employee.dataset.employeeWorkStatus);
+        });
+    });
+}
+
+setupStoreEmployeeFilters(storeDetail);
+
 if (requestedStore) {
     const matchingStores = [...document.querySelectorAll(".store-map-pin[data-store-name]")]
         .filter((store) => store.dataset.storeName.toLocaleLowerCase("vi").includes(requestedStore));
