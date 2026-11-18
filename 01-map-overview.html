@@ -44,21 +44,13 @@
             <svg class="ico"><use href="assets/images/icons.svg#target" /></svg>
           </button>
 
-                <div class="view-switch" aria-label="Kiểu hiển thị">
-                    <button class="tool-btn active" aria-label="Bản đồ">
-              <svg class="ico">
-                <use href="assets/images/icons.svg#route" />
-              </svg>
-            </button>
-                    <button class="tool-btn" data-href="03-working-employees.html" aria-label="Danh sách">
-              <svg class="ico"><use href="assets/images/icons.svg#list" /></svg>
-            </button>
-                </div>
             </div>
 
-            <div class="map map-photo map-user-centered" data-zoom="15">
-                <div class="map-zoom-level" aria-live="polite">Zoom: <b>15</b></div>
-                <div class="named-pin employee-pin pin-an" data-visit-status="in-progress" data-modal-target="employee-info-modal" data-focus="an" data-name="Nguyễn Văn An" data-avatar="assets/images/avatar-an.svg" data-status="Đang làm việc" data-status-class="green"
+            <div class="map map-photo map-user-centered" data-zoom="12">
+                <div class="map-zoom-level" aria-live="polite">Zoom: <b>12</b></div>
+                <span class="map-area-label area-thu-duc">Quận Thủ Đức <small>11 Plane · 4 cửa hàng</small></span>
+                <span class="map-area-label area-binh-thanh">Quận Bình Thạnh <small>10 Plane · 4 cửa hàng</small></span>
+                <div class="named-pin employee-pin pin-an" data-area="thu-duc" data-visit-status="in-progress" data-modal-target="employee-info-modal" data-focus="an" data-name="Nguyễn Văn An" data-avatar="assets/images/avatar-an.svg" data-status="Đang làm việc" data-status-class="green"
                     data-store="CH An Phú" data-gps="09:12 (29 phút trước)" role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico">
@@ -68,7 +60,7 @@
                     <span class="pin-label">An</span>
                 </div>
 
-                <div class="named-pin employee-pin pin-huy" data-visit-status="pending" data-modal-target="employee-info-modal" data-focus="huy" data-name="Lê Văn Huy" data-avatar="assets/images/avatar-huy.svg" data-status="Đang làm việc" data-status-class="green" data-store="CH Minh Khai"
+                <div class="named-pin employee-pin pin-huy" data-area="binh-thanh" data-visit-status="pending" data-modal-target="employee-info-modal" data-focus="huy" data-name="Lê Văn Huy" data-avatar="assets/images/avatar-huy.svg" data-status="Đang làm việc" data-status-class="green" data-store="CH Minh Khai"
                     data-gps="09:28 (13 phút trước)" role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico">
@@ -78,7 +70,7 @@
                     <span class="pin-label">Huy</span>
                 </div>
 
-                <div class="named-pin employee-pin pin-binh" data-visit-status="complete" data-modal-target="employee-info-modal" data-focus="binh" data-name="Trần Văn Bình" data-avatar="assets/images/avatar-binh.svg" data-status="Đang làm việc" data-status-class="green"
+                <div class="named-pin employee-pin pin-binh" data-area="binh-thanh" data-visit-status="complete" data-modal-target="employee-info-modal" data-focus="binh" data-name="Trần Văn Bình" data-avatar="assets/images/avatar-binh.svg" data-status="Đang làm việc" data-status-class="green"
                     data-store="CH Hoàng Diệu" data-gps="Chưa có dữ liệu" role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico">
@@ -88,7 +80,7 @@
                     <span class="pin-label">Bình</span>
                 </div>
 
-                <div class="store-map-pin store-one" data-modal-target="store-info-modal" data-focus="store-one" data-store-id="an-phu" data-store-name="CH An Phú" data-store-code="CH001" data-store-address="Số 123 Nguyễn Văn Linh, P. Tân Phú, Q.7, TP. Hồ Chí Minh" data-store-distance="30 m"
+                <div class="store-map-pin store-one" data-visit-status="in-progress" data-area="thu-duc" data-modal-target="store-info-modal" data-focus="store-one" data-store-id="an-phu" data-store-name="CH An Phú" data-store-code="CH001" data-store-address="Số 123 Nguyễn Văn Linh, P. Tân Phú, Q.7, TP. Hồ Chí Minh" data-store-distance="30 m"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico">
@@ -97,7 +89,7 @@
             </span>
                 </div>
 
-                <div class="store-map-pin store-two" data-modal-target="store-info-modal" data-focus="store-two" data-store-id="minh-tam" data-store-name="CH Minh Tâm" data-store-code="CH002" data-store-address="45 Lê Lợi, P. Bến Thành, Q.1, TP. Hồ Chí Minh" data-store-distance="1,2 km"
+                <div class="store-map-pin store-two" data-visit-status="pending" data-area="binh-thanh" data-modal-target="store-info-modal" data-focus="store-two" data-store-id="minh-tam" data-store-name="CH Minh Tâm" data-store-code="CH002" data-store-address="45 Lê Lợi, P. Bến Thành, Q.1, TP. Hồ Chí Minh" data-store-distance="1,2 km"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico">
@@ -106,7 +98,7 @@
             </span>
                 </div>
 
-                <div class="store-map-pin store-three" data-modal-target="store-info-modal" data-focus="store-three" data-store-id="hoang-dieu" data-store-name="CH Hoàng Diệu" data-store-code="CH003" data-store-address="88 Hoàng Diệu, P.13, Q.4, TP. Hồ Chí Minh" data-store-distance="2,1 km"
+                <div class="store-map-pin store-three" data-visit-status="complete" data-area="binh-thanh" data-modal-target="store-info-modal" data-focus="store-three" data-store-id="hoang-dieu" data-store-name="CH Hoàng Diệu" data-store-code="CH003" data-store-address="88 Hoàng Diệu, P.13, Q.4, TP. Hồ Chí Minh" data-store-distance="2,1 km"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico">
@@ -115,35 +107,35 @@
             </span>
                 </div>
 
-                <div class="store-map-pin store-four" data-modal-target="store-info-modal" data-focus="store-four" data-store-id="nguyen-van-linh" data-store-name="CH Nguyễn Văn Linh" data-store-code="CH004" data-store-address="210 Nguyễn Văn Linh, Q.7, TP. Hồ Chí Minh"
+                <div class="store-map-pin store-four" data-visit-status="failed" data-area="thu-duc" data-modal-target="store-info-modal" data-focus="store-four" data-store-id="nguyen-van-linh" data-store-name="CH Nguyễn Văn Linh" data-store-code="CH004" data-store-address="210 Nguyễn Văn Linh, Q.7, TP. Hồ Chí Minh"
                     data-store-distance="850 m" role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
             </span>
                 </div>
 
-                <div class="store-map-pin store-five" data-modal-target="store-info-modal" data-focus="store-five" data-store-id="phu-my" data-store-name="CH Phú Mỹ" data-store-code="CH005" data-store-address="12 Phạm Hữu Lầu, P. Phú Mỹ, Q.7" data-store-distance="2,8 km"
+                <div class="store-map-pin store-five" data-visit-status="pending" data-area="binh-thanh" data-modal-target="store-info-modal" data-focus="store-five" data-store-id="phu-my" data-store-name="CH Phú Mỹ" data-store-code="CH005" data-store-address="12 Phạm Hữu Lầu, P. Phú Mỹ, Q.7" data-store-distance="2,8 km"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
             </span>
                 </div>
 
-                <div class="store-map-pin store-six" data-modal-target="store-info-modal" data-focus="store-six" data-store-id="tan-thuan" data-store-name="CH Tân Thuận" data-store-code="CH006" data-store-address="35 Huỳnh Tấn Phát, P. Tân Thuận Đông, Q.7" data-store-distance="3,4 km"
+                <div class="store-map-pin store-six" data-visit-status="in-progress" data-area="thu-duc" data-modal-target="store-info-modal" data-focus="store-six" data-store-id="tan-thuan" data-store-name="CH Tân Thuận" data-store-code="CH006" data-store-address="35 Huỳnh Tấn Phát, P. Tân Thuận Đông, Q.7" data-store-distance="3,4 km"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
             </span>
                 </div>
 
-                <div class="store-map-pin store-seven" data-modal-target="store-info-modal" data-focus="store-seven" data-store-id="minh-khai" data-store-name="CH Minh Khai" data-store-code="CH007" data-store-address="102 Nguyễn Thị Minh Khai, Q.3, TP. Hồ Chí Minh" data-store-distance="4,1 km"
+                <div class="store-map-pin store-seven" data-visit-status="complete" data-area="binh-thanh" data-modal-target="store-info-modal" data-focus="store-seven" data-store-id="minh-khai" data-store-name="CH Minh Khai" data-store-code="CH007" data-store-address="102 Nguyễn Thị Minh Khai, Q.3, TP. Hồ Chí Minh" data-store-distance="4,1 km"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
             </span>
                 </div>
 
-                <div class="store-map-pin store-eight" data-modal-target="store-info-modal" data-focus="store-eight" data-store-id="binh-phu" data-store-name="CH Bình Phú" data-store-code="CH008" data-store-address="76 Bình Phú, P.11, Q.6, TP. Hồ Chí Minh" data-store-distance="5,2 km"
+                <div class="store-map-pin store-eight" data-visit-status="failed" data-area="thu-duc" data-modal-target="store-info-modal" data-focus="store-eight" data-store-id="binh-phu" data-store-name="CH Bình Phú" data-store-code="CH008" data-store-address="76 Bình Phú, P.11, Q.6, TP. Hồ Chí Minh" data-store-distance="5,2 km"
                     role="button" tabindex="0">
                     <span class="pin-core">
               <svg class="ico"><use href="assets/images/icons.svg#store" /></svg>
@@ -172,11 +164,11 @@
 
             <div class="overview overview-sheet">
                 <div class="sheet-grabber"></div>
-                <div class="map-status-legend" role="list" aria-label="Trạng thái cửa hàng">
-                    <span class="map-status-chip status-pending" role="listitem">Chưa thực hiện</span>
-                    <span class="map-status-chip status-in-progress" role="listitem">Đang thực hiện</span>
-                    <span class="map-status-chip status-complete" role="listitem">Thành công</span>
-                    <span class="map-status-chip status-failed" role="listitem">Không thành công</span>
+                <div class="map-status-legend" role="group" aria-label="Lọc trạng thái cửa hàng">
+                    <button class="map-status-chip status-pending" type="button" data-map-status-filter="pending" aria-pressed="false">Chưa thực hiện</button>
+                    <button class="map-status-chip status-in-progress" type="button" data-map-status-filter="in-progress" aria-pressed="false">Đang thực hiện</button>
+                    <button class="map-status-chip status-complete" type="button" data-map-status-filter="complete" aria-pressed="false">Thành công</button>
+                    <button class="map-status-chip status-failed" type="button" data-map-status-filter="failed" aria-pressed="false">Không thành công</button>
                 </div>
                 <div class="stats premium-stats">
                     <div class="stat" data-href="03-working-employees.html?view=all" role="button" tabindex="0">
@@ -184,7 +176,7 @@
                 <use href="assets/images/icons.svg#users" />
               </svg>
                         <b>21</b>
-                        <span>Nhân viên</span>
+                        <span>Plane</span>
                     </div>
                     <div class="stat" data-href="03-working-employees.html" role="button" tabindex="0">
                         <svg class="ico"><use href="assets/images/icons.svg#play" /></svg>

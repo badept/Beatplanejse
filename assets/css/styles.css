@@ -1943,14 +1943,41 @@
                      
                      .map-status-chip {
                          overflow: hidden;
+                         border: 1px solid transparent;
                          padding: 7px 2px;
                          border-radius: 7px;
+                         cursor: pointer;
                          font-size: 8px;
                          font-weight: 750;
                          line-height: 1.15;
                          text-align: center;
                          text-overflow: clip;
                          white-space: nowrap;
+                     }
+
+                     .map-status-chip.is-active {
+                         border-color: currentColor;
+                         box-shadow: 0 0 0 2px #ffffffb8, 0 2px 6px #153b2930;
+                         transform: translateY(-1px);
+                     }
+
+                     .map-photo[data-status-filter] .store-map-pin {
+                         transition: opacity 180ms ease, transform 180ms ease;
+                     }
+
+                     .map-photo[data-status-filter="pending"] .store-map-pin:not([data-visit-status="pending"]),
+                     .map-photo[data-status-filter="in-progress"] .store-map-pin:not([data-visit-status="in-progress"]),
+                     .map-photo[data-status-filter="complete"] .store-map-pin:not([data-visit-status="complete"]),
+                     .map-photo[data-status-filter="failed"] .store-map-pin:not([data-visit-status="failed"]) {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
+                     }
+
+                     .map-photo .store-map-pin.is-status-filtered-out {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
                      }
                      
                      .map-status-chip.status-pending {
@@ -3116,4 +3143,130 @@
                              opacity: 1;
                              transform: translateX(0);
                          }
+                     }
+
+                     /* Area overview on the expanded View Map. */
+                     .overview-page .map-area-label {
+                         position: absolute;
+                         z-index: 2;
+                         display: grid;
+                         gap: 2px;
+                         padding: 7px 10px;
+                         border: 1px solid #ffffffd9;
+                         border-radius: 10px;
+                         color: #096b48;
+                         background: #ffffffdf;
+                         box-shadow: 0 3px 10px #153b2930;
+                         font-size: 11px;
+                         font-weight: 800;
+                         line-height: 1.15;
+                         pointer-events: none;
+                     }
+
+                     .overview-page .map-area-label small {
+                         color: #527064;
+                         font-size: 9px;
+                         font-weight: 700;
+                     }
+
+                     .overview-page .area-thu-duc {
+                         top: 9%;
+                         left: 7%;
+                         border-left: 3px solid #1687ff;
+                     }
+
+                     .overview-page .area-binh-thanh {
+                         right: 7%;
+                         bottom: 11%;
+                         border-left: 3px solid #00a85a;
+                     }
+
+                     .map-area-summary {
+                         display: flex;
+                         align-items: center;
+                         justify-content: space-between;
+                         gap: 8px;
+                         margin: 12px 0 2px;
+                         padding: 9px 10px;
+                         border: 1px solid #cdebdc;
+                         border-radius: 10px;
+                         color: #087b4a;
+                         background: #edf9f2;
+                         font-size: 10px;
+                     }
+
+                     .map-area-summary span {
+                         font-weight: 700;
+                     }
+
+                     .map-area-summary b {
+                         color: #006f41;
+                         font-size: 10px;
+                         white-space: nowrap;
+                     }
+
+                     /* Pan the map canvas and its markers together. */
+                     .overview-page .map-photo {
+                         cursor: grab;
+                         touch-action: none;
+                     }
+
+                     .overview-page .map-photo.is-panning {
+                         cursor: grabbing;
+                         user-select: none;
+                     }
+
+                     .overview-page .map-photo.map-user-centered {
+                         background-position: calc(52% + var(--map-pan-x, 0px)) calc(56% + var(--map-pan-y, 0px));
+                     }
+
+                     .overview-page .map-zoom-layer {
+                         transform: translate(var(--map-pan-x, 0px), var(--map-pan-y, 0px)) scale(var(--map-marker-scale, 1));
+                     }
+
+                     /* Place the demo points consistently: Thủ Đức is north-east, Bình Thạnh is west. */
+                     .overview-page .pin-binh { top: 43%; left: 14%; right: auto; }
+                     .overview-page .store-one { top: 20%; left: 68%; }
+                     .overview-page .store-four { top: 32%; left: 75%; }
+                     .overview-page .store-six { top: 45%; left: 66%; }
+                     .overview-page .store-eight { top: 55%; left: 73%; }
+                     .overview-page .store-two { top: 30%; left: 15%; }
+                     .overview-page .store-three { top: 44%; left: 30%; }
+                     .overview-page .store-five { top: 56%; left: 16%; }
+                     .overview-page .store-seven { top: 66%; left: 32%; }
+
+                     .overview-page .area-thu-duc { top: 8%; left: 59%; }
+                     .overview-page .area-binh-thanh { right: auto; bottom: 13%; left: 7%; }
+
+                     /* The overview starts wide, but still keeps every store selectable. */
+                     .overview-page .map-photo.zoom-clustered .store-map-pin {
+                         opacity: 1;
+                         visibility: visible;
+                         pointer-events: auto;
+                     }
+
+                     .overview-page .map-photo.zoom-clustered .store-cluster {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
+                     }
+
+                     .overview-page .map-photo.zoom-clustered .employee-pin {
+                         opacity: 1;
+                         filter: none;
+                     }
+
+                     .overview-page .map-photo.zoom-clustered[data-status-filter="pending"] .store-map-pin:not([data-visit-status="pending"]),
+                     .overview-page .map-photo.zoom-clustered[data-status-filter="in-progress"] .store-map-pin:not([data-visit-status="in-progress"]),
+                     .overview-page .map-photo.zoom-clustered[data-status-filter="complete"] .store-map-pin:not([data-visit-status="complete"]),
+                     .overview-page .map-photo.zoom-clustered[data-status-filter="failed"] .store-map-pin:not([data-visit-status="failed"]) {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
+                     }
+
+                     .overview-page .map-photo.zoom-clustered .store-map-pin.is-status-filtered-out {
+                         opacity: 0;
+                         visibility: hidden;
+                         pointer-events: none;
                      }

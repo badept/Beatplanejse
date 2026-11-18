@@ -37,6 +37,32 @@ const storeClusters = {
     south: ["tan-thuan", "minh-khai", "binh-phu"],
 };
 
+const mapAreas = {
+    "thu-duc": { name: "Quận Thủ Đức", employees: 11, stores: 4 },
+    "binh-thanh": { name: "Quận Bình Thạnh", employees: 10, stores: 4 },
+};
+
+function fillAreaSummary(modal, trigger) {
+    const area = mapAreas[trigger.dataset.area];
+    let summary = modal.querySelector("[data-area-summary]");
+    if (!area) {
+        if (summary) summary.hidden = true;
+        return;
+    }
+
+    if (!summary) {
+        summary = document.createElement("div");
+        summary.className = "map-area-summary";
+        summary.dataset.areaSummary = "";
+        const anchor = modal.querySelector(".employee-detail-meta, .store-detail-list");
+        if (anchor) anchor.insertAdjacentElement("afterend", summary);
+    }
+
+    if (!summary) return;
+    summary.hidden = false;
+    summary.innerHTML = `<span>Khu vực ${area.name}</span><b>${area.employees} Plane · ${area.stores} cửa hàng</b>`;
+}
+
 document.querySelectorAll(".store-map-pin[data-store-name]").forEach((marker) => {
     if (marker.querySelector(".store-pin-label")) return;
     const label = document.createElement("span");
@@ -76,6 +102,87 @@ function centerOnMyLocation(map) {
     map.classList.add("map-user-centered", "location-pulse");
     setMapZoom(map, 15);
     window.setTimeout(() => map.classList.remove("location-pulse"), 700);
+}
+
+function setMapStatusFilter(control) {
+    const sheet = control.closest(".overview");
+    const map = control.closest(".phone")?.querySelector(".overview-content .map");
+    if (!sheet || !map) return;
+
+    const nextStatus = control.dataset.mapStatusFilter;
+    const selectedStatuses = new Set(
+        (map.dataset.statusFilters || "").split(",").filter(Boolean),
+    );
+
+    if (selectedStatuses.has(nextStatus)) selectedStatuses.delete(nextStatus);
+    else selectedStatuses.add(nextStatus);
+
+    if (selectedStatuses.size) map.dataset.statusFilters = [...selectedStatuses].join(",");
+    else delete map.dataset.statusFilters;
+
+    map.querySelectorAll(".store-map-pin").forEach((store) => {
+        const isHidden = selectedStatuses.size && !selectedStatuses.has(store.dataset.visitStatus);
+        store.classList.toggle("is-status-filtered-out", isHidden);
+    });
+
+    sheet.querySelectorAll("[data-map-status-filter]").forEach((chip) => {
+        const isActive = selectedStatuses.has(chip.dataset.mapStatusFilter);
+        chip.classList.toggle("is-active", isActive);
+        chip.setAttribute("aria-pressed", String(isActive));
+    });
+}
+
+function enableMapPan(map) {
+    let pointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let originX = 0;
+    let originY = 0;
+    let wasDragged = false;
+
+    const readPan = (name) => Number.parseFloat(map.style.getPropertyValue(name)) || 0;
+    const applyPan = (x, y) => {
+        map.style.setProperty("--map-pan-x", `${Math.max(-190, Math.min(190, x))}px`);
+        map.style.setProperty("--map-pan-y", `${Math.max(-150, Math.min(150, y))}px`);
+    };
+
+    map.addEventListener("pointerdown", (event) => {
+        if (event.button !== 0 || event.target.closest("button, .named-pin, .store-map-pin, .store-cluster")) return;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startY = event.clientY;
+        originX = readPan("--map-pan-x");
+        originY = readPan("--map-pan-y");
+        wasDragged = false;
+        map.classList.add("is-panning");
+        map.setPointerCapture(pointerId);
+    });
+
+    map.addEventListener("pointermove", (event) => {
+        if (event.pointerId !== pointerId) return;
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+        if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) wasDragged = true;
+        if (!wasDragged) return;
+        event.preventDefault();
+        applyPan(originX + deltaX, originY + deltaY);
+    });
+
+    const stopPanning = (event) => {
+        if (event.pointerId !== pointerId) return;
+        if (map.hasPointerCapture(pointerId)) map.releasePointerCapture(pointerId);
+        pointerId = null;
+        map.classList.remove("is-panning");
+    };
+    map.addEventListener("pointerup", stopPanning);
+    map.addEventListener("pointercancel", stopPanning);
+
+    map.addEventListener("click", (event) => {
+        if (!wasDragged) return;
+        event.preventDefault();
+        event.stopPropagation();
+        wasDragged = false;
+    });
 }
 
 function fillEmployeeModal(modal, trigger) {
@@ -126,6 +233,8 @@ function fillEmployeeModal(modal, trigger) {
         status.classList.remove("green", "orange", "red");
         status.classList.add(trigger.dataset.statusClass || "green");
     }
+
+    fillAreaSummary(modal, trigger);
 }
 
 function fillStoreModal(modal, trigger) {
@@ -140,6 +249,8 @@ function fillStoreModal(modal, trigger) {
         const field = modal.querySelector(selector);
         if (field && value) field.textContent = value;
     });
+
+    fillAreaSummary(modal, trigger);
 }
 
 function focusMapMarker(trigger) {
@@ -301,6 +412,12 @@ function closeInfoModal(closeControl) {
 }
 
 document.addEventListener("click", (event) => {
+    const statusFilter = event.target.closest("[data-map-status-filter]");
+    if (statusFilter) {
+        setMapStatusFilter(statusFilter);
+        return;
+    }
+
     const routeListControl = event.target.closest("[data-route-list]");
     if (routeListControl) {
         const routeList = routeListControl.closest(".phone")?.querySelector(".route-list");
@@ -471,6 +588,7 @@ if (employeeSearch) {
 document.querySelectorAll(".map[data-zoom]").forEach((map) => {
     prepareMapZoomLayer(map);
     setMapZoom(map, pageParams.get("zoom") || map.dataset.zoom);
+    enableMapPan(map);
 });
 
 const hashModalId = location.hash.slice(1);
