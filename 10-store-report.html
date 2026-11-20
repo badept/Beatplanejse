@@ -1,25 +1,90 @@
 <!doctype html>
-<html lang="vi"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><title>Báo cáo bán hàng</title><link rel="stylesheet" href="assets/css/styles.css" /></head>
-<body class="app-screen"><main class="phone premium-phone"><div class="statusbar"><span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
-  <header class="appbar simple"><button class="icon-btn" data-back data-href="04-store-detail.html"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button><h1>Chi tiết báo cáo</h1><span></span></header>
-  <section class="content"><div class="report-page">
-    <div class="report-store report-context" data-report-context><div><small>CỬA HÀNG ĐÃ CHỌN</small><b>CH An Phú</b></div><span>Mã báo cáo: 5579995<br />10/11/2026</span></div>
-    <form class="report-filter" data-report-form><h2>Chọn nhân viên để xem báo cáo</h2><p>Chỉ hiển thị nhân viên đang làm hoặc đã hoàn thành lượt ghé tại CH An Phú hôm nay.</p>
-      <div class="report-employee-options" role="radiogroup" aria-label="Nhân viên có hoạt động tại cửa hàng">
-        <button type="button" class="report-employee-option" data-report-employee="Nguyễn Văn An" data-sold="78 bao" data-cartons="12 cây" data-stock="126 bao" data-revenue="1,93tr" data-orders="50" aria-pressed="false"><img class="avatar" src="assets/images/avatar-an.svg" alt="" /><span><b>Nguyễn Văn An</b><small>Đang làm tại cửa hàng · Check-in 09:44</small></span><em class="badge green">Đang IN</em></button>
-        <button type="button" class="report-employee-option" data-report-employee="Phạm Quốc Bảo" data-sold="43 bao" data-cartons="7 cây" data-stock="84 bao" data-revenue="1,07tr" data-orders="29" aria-pressed="false"><img class="avatar" src="assets/images/avatar-binh.svg" alt="" /><span><b>Phạm Quốc Bảo</b><small>Đã hoàn thành lượt ghé · 09:05</small></span><em class="badge orange">Đã xong</em></button>
-      </div>
-      <button class="btn primary" type="button" data-view-store-report disabled><svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>Xem báo cáo nhân viên</button>
-    </form>
-    <div class="report-empty" data-report-empty><svg class="ico"><use href="assets/images/icons.svg#person" /></svg><b>Chọn nhân viên có hoạt động tại cửa hàng</b><span>Báo cáo sẽ hiển thị số bán thuốc lá, giá bán và tồn kho liên quan.</span></div>
-    <div data-report-results hidden><div class="report-store report-employee-summary"><div><small>CH AN PHÚ · MÃ 5579995 · 10/11/2026</small><b data-report-store-name>CH An Phú</b></div><span><small>NHÂN VIÊN</small><b data-report-employee-name>Nguyễn Văn An</b></span></div>
-      <div class="report-detail-heading"><p class="report-detail-note">Bấm vào từng hạng mục để xem phiếu chi tiết.</p><button type="button" class="change-report" data-change-report>Đổi nhân viên</button></div>
-      <details class="report-accordion" open><summary><span class="report-accordion-icon attendance">📋</span><b>Chấm công</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=attendance"><span>#1/1</span><b>Đã check-in tại CH An Phú</b><small>09:44 · Có ảnh và vị trí chấm công</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button></details>
-      <details class="report-accordion" open><summary><span class="report-accordion-icon support">🎉</span><b>Hỗ trợ cửa hàng</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=support"><span>#1/1</span><b>Trưng bày và hỗ trợ đơn hàng</b><small>Hoàn tất lúc 10:05</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button></details>
-      <details class="report-accordion" open><summary><span class="report-accordion-icon survey">🧾</span><b>Khảo sát lượng khách tại quán</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=customer"><span>#1/1</span><b>Khảo sát số lượng khách tại quán</b><small>Đã ghi nhận lượng khách theo khung giờ</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button></details>
-      <details class="report-accordion" open><summary><span class="report-accordion-icon price">🏷️</span><b>Khảo sát giá sản phẩm</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=price&amp;item=1"><span>#1/2</span><b>Giá bán Marlboro Gold, Esse Change</b><small>Đã ghi nhận 2 sản phẩm</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=price&amp;item=2"><span>#2/2</span><b>Giá bán Jet Filter, Vinataba</b><small>Đã ghi nhận 2 sản phẩm</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button></details>
-      <details class="report-accordion" open><summary><span class="report-accordion-icon stock">📦</span><b>Khảo sát tồn kho sản phẩm</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=stock&amp;item=1"><span>#1/2</span><b>Tồn kho Marlboro Gold, Esse Change</b><small>Tồn thực tế đã cập nhật</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=stock&amp;item=2"><span>#2/2</span><b>Tồn kho Jet Filter, Vinataba</b><small>Tồn thực tế đã cập nhật</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button></details>
-      <details class="report-accordion" open><summary><span class="report-accordion-icon check">✅</span><b>Kiểm tra SA</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary><button type="button" class="report-record" data-href="13-report-activity-detail.html?type=check-sa"><span>#1/1</span><b>Kiểm tra tiêu chuẩn tại cửa hàng</b><small>Đạt 8/10 tiêu chí</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button></details>
-    </div>
-  </div></section><div class="toast"></div>
-</main><script src="assets/js/app.js"></script></body></html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Báo cáo bán hàng</title>
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
+    <body class="app-screen">
+        <!-- Khung màn hình -->
+        <main class="phone premium-phone">
+            <div class="statusbar"> <span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
+            <!-- Thanh tiêu đề và điều hướng -->
+            <header class="appbar simple">
+                <button class="icon-btn" data-back data-href="04-store-detail.html"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button>
+                <h1>Chi tiết báo cáo</h1>
+                <span></span>
+            </header>
+            <!-- Nội dung chính -->
+            <section class="content">
+                <div class="report-page">
+                    <div class="report-store report-context" data-report-context>
+                        <div> <small>CỬA HÀNG ĐÃ CHỌN</small><b>CH An Phú</b></div>
+                        <span>Mã báo cáo: 5579995<br />10/11/2026</span>
+                    </div>
+                    <form class="report-filter" data-report-form>
+                        <h2>Chọn nhân viên để xem báo cáo</h2>
+                        <p>Chỉ hiển thị nhân viên đang làm hoặc đã hoàn thành lượt ghé tại CH An Phú hôm nay.</p>
+                        <div class="report-employee-options" role="radiogroup" aria-label="Nhân viên có hoạt động tại cửa hàng">
+                            <button type="button" class="report-employee-option" data-report-employee="Nguyễn Văn An" data-sold="78 bao" data-cartons="12 cây" data-stock="126 bao" data-revenue="1,93tr" data-orders="50" aria-pressed="false"><img class="avatar" src="assets/images/avatar-an.svg" alt="" /><span><b>Nguyễn Văn An</b><small>Đang làm tại cửa hàng · Check-in 09:44</small></span><em class="badge green">Đang IN</em></button>
+                            <button type="button" class="report-employee-option" data-report-employee="Phạm Quốc Bảo" data-sold="43 bao" data-cartons="7 cây" data-stock="84 bao" data-revenue="1,07tr" data-orders="29" aria-pressed="false"><img class="avatar" src="assets/images/avatar-binh.svg" alt="" /><span><b>Phạm Quốc Bảo</b><small>Đã hoàn thành lượt ghé · 09:05</small></span><em class="badge orange">Đã xong</em></button>
+                        </div>
+                        <button class="btn primary" type="button" data-view-store-report disabled><svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>Xem báo cáo nhân viên</button>
+                    </form>
+                    <div class="report-empty" data-report-empty> <svg class="ico"><use href="assets/images/icons.svg#person" /></svg><b>Chọn nhân viên có hoạt động tại cửa hàng</b><span>Báo cáo sẽ hiển thị số bán thuốc lá, giá bán và tồn kho liên quan.</span></div>
+                    <div data-report-results hidden>
+                        <div class="report-store report-employee-summary">
+                            <div> <small>CH AN PHÚ · MÃ 5579995 · 10/11/2026</small><b data-report-store-name>CH An Phú</b></div>
+                            <span><small>NHÂN VIÊN</small><b data-report-employee-name>Nguyễn Văn An</b></span>
+                        </div>
+                        <div class="report-detail-heading">
+                            <p class="report-detail-note">Bấm vào từng hạng mục để xem phiếu chi tiết.</p>
+                            <button type="button" class="change-report" data-change-report>Đổi nhân viên</button>
+                        </div>
+                        <details class="report-accordion" open>
+                            <summary> <span class="report-accordion-icon attendance">📋</span><b>Chấm công</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=attendance"><span>#1/1</span><b>Đã check-in tại CH An Phú</b><small>09:44 · Có ảnh và vị trí chấm công</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                        </details>
+                        <details class="report-accordion" open>
+                            <summary> <span class="report-accordion-icon support">🎉</span><b>Hỗ trợ cửa hàng</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=support"><span>#1/1</span><b>Trưng bày và hỗ trợ đơn hàng</b><small>Hoàn tất lúc 10:05</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                        </details>
+                        <details class="report-accordion" open>
+                            <summary> <span class="report-accordion-icon survey">🧾</span><b>Khảo sát lượng khách tại quán</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=customer"><span>#1/1</span><b>Khảo sát số lượng khách tại quán</b><small>Đã ghi nhận lượng khách theo khung giờ</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                        </details>
+                        <details class="report-accordion" open>
+                            <summary> <span class="report-accordion-icon price">🏷️</span><b>Khảo sát giá sản phẩm</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=price&amp;item=1"><span>#1/2</span><b>Giá bán Marlboro Gold, Esse Change</b><small>Đã ghi nhận 2 sản phẩm</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=price&amp;item=2"><span>#2/2</span><b>Giá bán Jet Filter, Vinataba</b><small>Đã ghi nhận 2 sản phẩm</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                        </details>
+                        <details class="report-accordion" open>
+                            <summary> <span class="report-accordion-icon stock">📦</span><b>Khảo sát tồn kho sản phẩm</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=stock&amp;item=1"><span>#1/2</span><b>Tồn kho Marlboro Gold, Esse Change</b><small>Tồn thực tế đã cập nhật</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=stock&amp;item=2"><span>#2/2</span><b>Tồn kho Jet Filter, Vinataba</b><small>Tồn thực tế đã cập nhật</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                        </details>
+                        <details class="report-accordion" open>
+                            <summary> <span class="report-accordion-icon check">✅</span><b>Kiểm tra SA</b><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></summary>
+                            <button type="button" class="report-record" data-href="13-report-activity-detail.html?type=check-sa"><span>#1/1</span><b>Kiểm tra tiêu chuẩn tại cửa hàng</b><small>Đạt 8/10 tiêu chí</small><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></button>
+                        </details>
+                    </div>
+                </div>
+            </section>
+            <div class="toast"></div>
+        </main>
+        <!-- Scripts: dữ liệu → chức năng → khởi tạo; giữ thứ tự này. -->
+        <script src="assets/js/demo-data.js"></script>
+        <script src="assets/js/icons.js"></script>
+        <script src="assets/js/core.js"></script>
+        <script src="assets/js/map.js"></script>
+        <script src="assets/js/modals.js"></script>
+        <script src="assets/js/employees.js"></script>
+        <script src="assets/js/filters.js"></script>
+        <script src="assets/js/checkin.js"></script>
+        <script src="assets/js/evaluation.js"></script>
+        <script src="assets/js/reports.js"></script>
+        <script src="assets/js/stores.js"></script>
+        <script src="assets/js/app.js"></script>
+    </body>
+</html>

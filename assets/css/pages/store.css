@@ -1,0 +1,124 @@
+.store-map {
+    height: 34%;
+    min-height: 210px;
+}
+
+.range {
+    position: absolute;
+    width: 126px;
+    height: 126px;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border: 1.5px dashed #0875f5;
+    border-radius: 50%;
+    background: #0875f521;
+}
+
+.range:before {
+    content: "CH An Phú\A Bán kính: 100 m";
+    white-space: pre;
+    position: absolute;
+    left: 50%;
+    top: -33px;
+    translate: -50% 0;
+    padding: 3px 7px;
+    border-radius: 6px;
+    background: #fff;
+    color: #1f2b25;
+    font-size: 8px;
+    text-align: center;
+    box-shadow: 0 1px 5px #0002;
+}
+
+.range .marker {
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+}
+
+.store-panel {
+    position: relative;
+    z-index: 4;
+    margin-top: -14px;
+    padding: 11px 10px 92px;
+    border-radius: 15px 15px 0 0;
+    background: #fff;
+}
+
+.store-title {
+    display: grid;
+    grid-template-columns: 39px 1fr 25px;
+    gap: 8px;
+    align-items: center;
+}
+
+.store-logo {
+    width: 37px;
+    height: 37px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: #0875f5;
+    background: #e8f2ff;
+}
+
+.store-logo .ico {
+    width: 23px;
+    height: 23px;
+}
+
+.store-title small {
+    font-size: 8.5px;
+}
+
+.distance-note {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 6px;
+    margin: 6px 0;
+    padding: 7px;
+    border-radius: 6px;
+    background: #dcf8e6;
+    font-size: 9px;
+    line-height: 12px;
+    color: #21482f;
+}
+
+.distance-note>.ico {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    padding: 2px;
+    color: #fff;
+    background: #0aad42;
+}
+
+.employee {
+    display: grid;
+    grid-template-columns: 33px 1fr 17px;
+    gap: 7px;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.employee .avatar {
+    width: 31px;
+    height: 31px;
+}
+
+.employee>.ico {
+    width: 16px;
+    height: 16px;
+}
+
+.bottom-actions {
+    position: absolute;
+    z-index: 12;
+    left: 10px;
+    right: 10px;
+    bottom: 9px;
+    display: grid;
+    gap: 5px;
+}

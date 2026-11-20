@@ -1,0 +1,86 @@
+.gallery {
+    width: 100%;
+    max-width: 1100px;
+}
+
+.gallery-head {
+    margin-bottom: 16px;
+}
+
+.gallery h1 {
+    margin: 0;
+    font-size: 27px;
+}
+
+.gallery p {
+    margin: 5px 0 0;
+    color: #65706a;
+}
+
+.screen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.screen-link {
+    overflow: hidden;
+    border: 1px solid #dbe3df;
+    border-radius: 14px;
+    background: #fff;
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 0 8px 24px #1833261c;
+    transition: 0.2s;
+}
+
+.screen-link:hover {
+    translate: 0 -4px;
+}
+
+.thumb {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    background: #dceae3 url("../../images/map-city.png") center/cover;
+}
+
+.thumb:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 13px;
+    translate: -50% 0;
+    width: 120px;
+    height: 230px;
+    border: 4px solid #1d221f;
+    border-radius: 21px;
+    background: #fff;
+    box-shadow: 0 8px 18px #0003;
+}
+
+.thumb:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 17px;
+    translate: -50% 0;
+    width: 112px;
+    height: 40px;
+    border-radius: 17px 17px 0 0;
+    background: #008650;
+}
+
+.screen-meta {
+    padding: 12px;
+}
+
+.screen-meta b {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.screen-meta span {
+    font-size: 12px;
+    color: #68736e;
+}

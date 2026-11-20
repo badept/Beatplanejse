@@ -1,0 +1,134 @@
+/* SUP check-in, SA evaluation and store report */
+.checkin-page, .evaluation-page, .report-page {
+    min-height: 100%;
+    padding: 10px 10px 84px;
+    background: #fff;
+}
+
+.checkin-store, .evaluation-store, .report-store {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px;
+    border: 1px solid #dce8e1;
+    border-radius: 9px;
+    background: #f7fbf8;
+}
+
+.checkin-store > .ico, .evaluation-store > .ico {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 7px;
+    color: #fff;
+    background: #008b52;
+}
+
+.checkin-store div, .evaluation-store span {
+    display: grid;
+    gap: 2px;
+    flex: 1;
+}
+
+.checkin-store b, .evaluation-store b, .report-store b {
+    font-size: 11px;
+}
+
+.checkin-store small, .evaluation-store small {
+    color: #748079;
+    font-size: 8.5px;
+}
+
+.checkin-section, .report-section {
+    margin-top: 12px;
+}
+
+.checkin-section h2, .report-section h2 {
+    margin: 0 0 7px;
+    padding: 0 0 5px 8px;
+    border-bottom: 1px solid #dfe6e2;
+    border-left: 5px solid #f5a000;
+    color: #48534d;
+    font-size: 10px;
+}
+
+.checkin-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #dfe6e2;
+}
+
+.checkin-tabs button {
+    padding: 7px 3px;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: #79847e;
+    background: transparent;
+    font-size: 9px;
+}
+
+.checkin-tabs button.active {
+    border-color: #00a36c;
+    color: #00a36c;
+    font-weight: 700;
+}
+
+.checkin-capture {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: 8px;
+}
+
+.captured-photo, .camera-tile {
+    height: 105px;
+    border: 0;
+    border-radius: 6px;
+}
+
+.captured-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 8px;
+    color: #fff;
+    background: linear-gradient(0deg, #18221bc4, transparent 70%), url("../../images/map-city.png") center/cover;
+    font-size: 8px;
+}
+
+.captured-photo b {
+    font-size: 8px;
+}
+
+.camera-tile {
+    display: grid;
+    place-content: center;
+    gap: 6px;
+    color: #2465dc;
+    background: #f4f6fa;
+    font-size: 9px;
+}
+
+.camera-tile .ico {
+    width: 48px;
+    height: 48px;
+}
+
+.attendance-grid {
+    display: grid;
+    grid-template-columns: .55fr 1.2fr 1fr;
+    gap: 8px;
+    padding: 8px 3px;
+    color: #77817b;
+    font-size: 8px;
+    line-height: 1.35;
+}
+
+.attendance-grid b {
+    color: #10a673;
+    font-size: 8px;
+}
+
+.attendance-grid strong {
+    color: #5f6a64;
+}

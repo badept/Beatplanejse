@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Giám sát 26.219 cửa hàng nguồn và 900 nhân viên mô phỏng theo vùng và SUP trên bản đồ Việt Nam." />
+        <title>View Map — Giám sát thị trường Việt Nam</title>
+        <link rel="stylesheet" href="assets/vendor/leaflet.css" />
+        <link rel="stylesheet" href="assets/vendor/MarkerCluster.css" />
+        <link rel="stylesheet" href="assets/css/pages/dashboard.css" />
+        <script defer src="assets/vendor/leaflet.js"></script>
+        <script defer src="assets/vendor/leaflet.markercluster.js"></script>
+        <script defer src="assets/js/dashboard-model.js"></script>
+        <script defer src="assets/js/dashboard-data.js"></script>
+        <script defer src="assets/js/dashboard-geography.js"></script>
+        <script defer src="assets/js/map-provider.js"></script>
+        <script defer src="assets/js/dashboard.js"></script>
+    </head>
+    <body>
+        <a class="skip-link" href="#monitor-panel">Tới thông tin giám sát</a>
+        <div class="dashboard-shell">
+            <header class="dashboard-header">
+                <a class="brand" href="index.html" aria-label="View Map — về bộ giao diện"><span class="brand-symbol" aria-hidden="true">V</span><span>View<span class="brand-light">Map</span></span></a>
+                <span class="header-divider" aria-hidden="true"></span>
+                <nav class="main-nav" aria-label="Điều hướng chính"><button class="nav-item is-active" type="button" data-nav="map" aria-pressed="true">Bản đồ giám sát</button><button class="nav-item" type="button" data-nav="reports" aria-pressed="false">Báo cáo</button></nav>
+                <div class="header-end"><button class="filter-toggle" id="toggle-filters" type="button" aria-label="Bộ lọc" aria-expanded="false" aria-controls="dashboard-filters" title="Bộ lọc" disabled><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16l-6 7v6l-4 2v-8L4 5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></svg></button><span class="header-avatar" aria-label="Chế độ giám sát">GS</span></div>
+            </header>
+
+            <h1 class="sr-only">Giám sát nhân viên và cửa hàng trên bản đồ</h1>
+
+            <form class="filter-bar" id="dashboard-filters" role="search" aria-label="Bộ lọc giám sát" aria-busy="true" inert hidden>
+                <label class="search-field"><span class="field-label">Tìm kiếm</span><span class="search-input-wrap"><span class="search-symbol" aria-hidden="true"></span><input id="search-query" type="search" placeholder="Tên nhân viên, cửa hàng hoặc mã CH…" autocomplete="off" /></span></label>
+                <label><span class="field-label">Khu vực</span><select id="region-filter"><option value="all">Toàn quốc</option><option value="north">Miền Bắc</option><option value="central">Miền Trung</option><option value="south">Miền Nam</option><option value="unassigned">Chưa xác định vùng</option></select></label>
+                <label><span class="field-label">Địa điểm</span><select id="city-filter"><option value="all">Tất cả địa điểm</option></select></label>
+                <label><span class="field-label">SUP phụ trách</span><select id="sup-filter"><option value="all">Tất cả SUP</option></select></label>
+                <label><span class="field-label">Nhân viên mẫu</span><select id="employee-filter"><option value="all">Tất cả nhân viên</option></select></label>
+                <label><span class="field-label">Ngày làm việc</span><select id="date-filter"><option value="2026-11-19">19/11/2026</option><option value="2026-11-18">18/11/2026</option><option value="2026-11-17">17/11/2026</option></select></label>
+                <button class="reset-button" id="reset-filters" type="button">Đặt lại</button>
+            </form>
+
+            <main class="dashboard-workspace">
+                <section class="map-panel" aria-label="Bản đồ giám sát Việt Nam">
+                    <div class="map-body"><button id="back-full-route" class="map-route-back" type="button" hidden>← Về toàn bộ lộ trình</button><div id="dashboard-map" aria-label="Bản đồ nhân viên và cửa hàng" role="region"></div><div class="map-network-note" id="map-network-note" role="status" hidden>Chưa tải được nền đường phố. Đang dùng nền tổng quan; marker và báo cáo vẫn hoạt động.</div><div class="map-loading" id="map-loading"><span class="loading-spinner" aria-hidden="true"></span>Đang tải bản đồ Việt Nam…</div></div>
+                    <div class="map-bottom-bar"><div class="map-quick-filters" role="group" aria-label="Lọc đối tượng"><button type="button" data-map-object="all">Tất cả đối tượng</button><button type="button" data-map-object="employees">Nhân viên</button><button type="button" data-map-object="stores">Cửa hàng</button></div><div class="map-quick-filters" role="group" aria-label="Lọc trạng thái cửa hàng theo ngày"><button type="button" data-map-status="all">Tất cả trạng thái</button><button type="button" data-map-status="pending">Chưa làm</button><button type="button" data-map-status="working">Đang làm</button><button type="button" data-map-status="completed">Thành công</button><button type="button" data-map-status="failed">Không thành công</button></div><span class="map-route-note" id="route-note" hidden>Lộ trình mô phỏng nối các điểm</span></div>
+                </section>
+
+                <aside class="monitor-panel" id="monitor-panel" aria-label="Thông tin giám sát">
+                    <div id="overview-panel">
+                        <div class="panel-heading"><div><span class="eyebrow">TRONG BỘ LỌC</span><h2>Tổng quan</h2></div><span class="panel-date" id="panel-date">19/11</span></div>
+                        <div class="summary-grid" id="summary-grid" aria-label="Số liệu trong bộ lọc"></div>
+                        <p class="data-quality-note" id="data-quality-note"></p>
+                        <div class="list-toolbar"><h3>Đối tượng giám sát</h3><span id="list-total"></span></div>
+                        <div class="object-tabs" role="group" aria-label="Lớp hiển thị"><button type="button" data-object="all" aria-pressed="true">Tất cả</button><button type="button" data-object="employees" aria-pressed="false">Nhân viên</button><button type="button" data-object="stores" aria-pressed="false">Cửa hàng</button></div>
+                        <label class="status-filter-label"><span>Trạng thái cửa hàng</span><select id="status-filter"><option value="all">Tất cả trạng thái</option><option value="pending">Chưa thực hiện</option><option value="working">Đang thực hiện</option><option value="completed">Thành công</option><option value="failed">Không thành công</option></select></label>
+                        <label class="status-filter-label"><span>Tọa độ shop</span><select id="location-filter"><option value="all">Tất cả shop</option><option value="available">Có vị trí hiển thị</option><option value="unlocated">Chưa có vị trí hợp lệ</option><option value="review">Cần kiểm tra tọa độ</option></select></label>
+                        <div class="list-filters-sticky">
+                        <div class="list-pagination"><button type="button" data-list-page="previous" aria-label="Trang danh sách trước">Trước</button><span id="list-page-label"></span><button type="button" data-list-page="next" aria-label="Trang danh sách tiếp theo">Sau</button></div>
+                        <button class="list-search-toggle" id="toggle-list-search" type="button" aria-expanded="false" aria-controls="list-search-fields"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span>Tìm trong danh sách</span><small id="list-search-active" hidden>Đang lọc</small><span class="list-search-chevron" aria-hidden="true">⌄</span></button>
+                        <div id="list-search-fields" hidden>
+                        <label class="employee-list-search" id="employee-list-search-wrap"><span>NHÂN VIÊN</span><input id="employee-list-search" type="search" placeholder="Tìm tên hoặc mã NV…" aria-label="Tìm tên hoặc mã nhân viên" autocomplete="off"></label>
+                        <label class="employee-list-search" id="store-list-search-wrap"><span>CỬA HÀNG</span><input id="store-list-search" type="search" placeholder="Tìm tên hoặc mã cửa hàng…" aria-label="Tìm tên hoặc mã cửa hàng" autocomplete="off"></label>
+                        </div>
+                        </div>
+                        <div class="object-list" id="object-list" aria-label="Danh sách đối tượng"></div>
+                    </div>
+                    <div id="detail-panel" hidden></div>
+                </aside>
+            </main>
+            <footer class="dashboard-footer"><span>Shop từ file nguồn · Nhân viên, vị trí NV và báo cáo mô phỏng · Khoảng cách đường thẳng ước lượng</span><span>Chỉ giám sát &amp; xem báo cáo</span></footer>
+        </div>
+        <div id="dashboard-announcement" class="sr-only" role="status" aria-live="polite"></div>
+        <noscript><p class="noscript-note">Bật JavaScript để sử dụng bản đồ và bộ lọc. Các trang HTML cũ vẫn truy cập được từ trang chủ.</p></noscript>
+    </body>
+</html>

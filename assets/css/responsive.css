@@ -1,0 +1,32 @@
+@media (max-width: 760px) {
+    .screen-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 10px;
+        background: linear-gradient(135deg, #eff4f1, #cddbd4);
+    }
+    .overview-page {
+        padding: 10px;
+    }
+    .phone {
+        width: min(100%, 320px);
+        height: min(700px, calc(100dvh - 24px));
+        min-height: 0;
+    }
+    .phone:before {
+        top: 0;
+    }
+    .phone:after {
+        top: 11px;
+    }
+    .gallery {
+        padding: 18px;
+    }
+    .screen-grid {
+        grid-template-columns: 1fr;
+    }
+}

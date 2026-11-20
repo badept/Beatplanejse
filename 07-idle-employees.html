@@ -1,27 +1,94 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nhân viên chưa làm việc</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-<body class="app-screen">
-  <main class="phone premium-phone">
-    <div class="statusbar"><span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
-    <header class="appbar simple"><button class="icon-btn" data-back data-href="01-map-overview.html" aria-label="Quay lại"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button><h1>Nhân viên chưa làm việc</h1><span></span></header>
-    <section class="content"><div class="location-body idle-list-body">
-      <div class="notice neutral"><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Nhân viên chưa bắt đầu ca hoặc chưa ghi nhận check-in hôm nay.</span></div>
-      <div class="search"><svg class="ico"><use href="assets/images/icons.svg#search" /></svg><input type="search" placeholder="Tìm nhân viên hoặc cửa hàng..." aria-label="Tìm nhân viên chưa làm việc" data-employee-search /></div>
-      <div class="list-summary-row"><p class="out-list-summary"><b data-employee-count>3</b> nhân viên chưa làm việc</p><span class="status-legend idle-legend"><i></i> Chưa check-in</span></div>
-      <div class="cards employee-list">
-        <article class="card idle-card" data-employee-card data-employee-name="Nguyễn Thị Lan" data-employee-store="CH An Phú"><div class="card-head"><img class="avatar" src="assets/images/avatar-an.svg" alt="Nguyễn Thị Lan" /><div><div class="person-name">Nguyễn Thị Lan</div><span class="badge gray">Chưa làm việc</span></div><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg></div><div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Ca dự kiến: CH An Phú</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Bắt đầu ca lúc 10:00</span></div></div></article>
-        <article class="card idle-card" data-employee-card data-employee-name="Lê Quốc Duy" data-employee-store="CH Nguyễn Văn Linh"><div class="card-head"><img class="avatar" src="assets/images/avatar-binh.svg" alt="Lê Quốc Duy" /><div><div class="person-name">Lê Quốc Duy</div><span class="badge gray">Chưa làm việc</span></div><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg></div><div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Ca dự kiến: CH Nguyễn Văn Linh</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Bắt đầu ca lúc 10:30</span></div></div></article>
-        <article class="card idle-card" data-employee-card data-employee-name="Trần Ngọc Mai" data-employee-store="CH Tân Thuận"><div class="card-head"><img class="avatar" src="assets/images/avatar-huy.svg" alt="Trần Ngọc Mai" /><div><div class="person-name">Trần Ngọc Mai</div><span class="badge gray">Chưa làm việc</span></div><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg></div><div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Ca dự kiến: CH Tân Thuận</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Chưa có giờ check-in</span></div></div></article>
-        <p class="out-empty" hidden>Không tìm thấy nhân viên phù hợp.</p>
-      </div>
-    </div></section>
-    <div class="bottom-actions"><button class="btn primary" data-action data-message="Đã làm mới danh sách"><svg class="ico"><use href="assets/images/icons.svg#refresh" /></svg>Làm mới</button></div><div class="toast"></div>
-  </main><script src="assets/js/app.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Nhân viên chưa làm việc</title>
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
+    <body class="app-screen">
+        <!-- Khung màn hình -->
+        <main class="phone premium-phone">
+            <div class="statusbar"> <span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
+            <!-- Thanh tiêu đề và điều hướng -->
+            <header class="appbar simple">
+                <button class="icon-btn" data-back data-href="01-map-overview.html" aria-label="Quay lại"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button>
+                <h1>Nhân viên chưa làm việc</h1>
+                <span></span>
+            </header>
+            <!-- Nội dung chính -->
+            <section class="content">
+                <div class="location-body idle-list-body">
+                    <div class="notice neutral"> <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Nhân viên chưa bắt đầu ca hoặc chưa ghi nhận check-in hôm nay.</span></div>
+                    <div class="search"> <svg class="ico"><use href="assets/images/icons.svg#search" /></svg><input type="search" placeholder="Tìm nhân viên hoặc cửa hàng..." aria-label="Tìm nhân viên chưa làm việc" data-employee-search /></div>
+                    <div class="list-summary-row">
+                        <p class="out-list-summary"><b data-employee-count>3</b> nhân viên chưa làm việc</p>
+                        <span class="status-legend idle-legend"><i></i> Chưa check-in</span>
+                    </div>
+                    <div class="cards employee-list">
+                        <article class="card idle-card" data-employee-card data-employee-name="Nguyễn Thị Lan" data-employee-store="CH An Phú">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-an.svg" alt="Nguyễn Thị Lan" />
+                                <div>
+                                    <div class="person-name"> Nguyễn Thị Lan </div>
+                                    <span class="badge gray">Chưa làm việc</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Ca dự kiến: CH An Phú</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Bắt đầu ca lúc 10:00</span></div>
+                            </div>
+                        </article>
+                        <article class="card idle-card" data-employee-card data-employee-name="Lê Quốc Duy" data-employee-store="CH Nguyễn Văn Linh">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-binh.svg" alt="Lê Quốc Duy" />
+                                <div>
+                                    <div class="person-name"> Lê Quốc Duy </div>
+                                    <span class="badge gray">Chưa làm việc</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Ca dự kiến: CH Nguyễn Văn Linh</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Bắt đầu ca lúc 10:30</span></div>
+                            </div>
+                        </article>
+                        <article class="card idle-card" data-employee-card data-employee-name="Trần Ngọc Mai" data-employee-store="CH Tân Thuận">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-huy.svg" alt="Trần Ngọc Mai" />
+                                <div>
+                                    <div class="person-name"> Trần Ngọc Mai </div>
+                                    <span class="badge gray">Chưa làm việc</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Ca dự kiến: CH Tân Thuận</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Chưa có giờ check-in</span></div>
+                            </div>
+                        </article>
+                        <p class="out-empty" hidden>Không tìm thấy nhân viên phù hợp.</p>
+                    </div>
+                </div>
+            </section>
+            <div class="bottom-actions">
+                <button class="btn primary" data-action data-message="Đã làm mới danh sách"><svg class="ico"><use href="assets/images/icons.svg#refresh" /></svg>Làm mới</button>
+            </div>
+            <div class="toast"></div>
+        </main>
+        <!-- Scripts: dữ liệu → chức năng → khởi tạo; giữ thứ tự này. -->
+        <script src="assets/js/demo-data.js"></script>
+        <script src="assets/js/icons.js"></script>
+        <script src="assets/js/core.js"></script>
+        <script src="assets/js/map.js"></script>
+        <script src="assets/js/modals.js"></script>
+        <script src="assets/js/employees.js"></script>
+        <script src="assets/js/filters.js"></script>
+        <script src="assets/js/checkin.js"></script>
+        <script src="assets/js/evaluation.js"></script>
+        <script src="assets/js/reports.js"></script>
+        <script src="assets/js/stores.js"></script>
+        <script src="assets/js/app.js"></script>
+    </body>
 </html>

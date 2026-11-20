@@ -1,0 +1,27 @@
+/* Rectangular app preview mode: no phone hardware mockup */
+.app-screen .phone, .overview-page .phone {
+    width: min(100%, 360px);
+    height: min(700px, calc(100dvh - 20px));
+    min-height: 0;
+    border: 1px solid #d8dfdb;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 14px 36px #18332624;
+}
+
+.app-screen .phone::before, .app-screen .phone::after, .overview-page .phone::before, .overview-page .phone::after {
+    display: none;
+}
+
+.app-screen .statusbar, .overview-page .statusbar {
+    display: none;
+}
+
+.app-screen .appbar, .overview-page .appbar {
+    height: 62px;
+    border-radius: 11px 11px 0 0;
+}
+
+.app-screen .content, .overview-page .overview-content {
+    height: calc(100% - 62px);
+}

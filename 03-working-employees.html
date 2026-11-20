@@ -1,90 +1,269 @@
 <!doctype html>
 <html lang="vi">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nhân viên đang IN</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
-<body class="app-screen">
-  <main class="phone premium-phone">
-    <div class="statusbar"><span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
-    <header class="appbar simple">
-      <button class="icon-btn" data-back data-href="01-map-overview.html" aria-label="Quay lại"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button>
-      <h1>Nhân viên đang IN</h1><span></span>
-    </header>
-    <section class="content">
-      <div class="location-body working-list-body">
-        <div class="notice success"><svg class="ico"><use href="assets/images/icons.svg#info" /></svg><span>Nhân viên đang trong ca. Vị trí hiển thị là GPS cập nhật gần nhất.</span></div>
-        <div class="search"><svg class="ico"><use href="assets/images/icons.svg#search" /></svg><input type="search" placeholder="Tìm nhân viên hoặc cửa hàng..." aria-label="Tìm nhân viên đang IN" data-employee-search /></div>
-        <div class="list-summary-row"><p class="out-list-summary"><b data-employee-count>6</b> nhân viên đang IN</p><span class="live-indicator"><i></i> Đang cập nhật</span></div>
-        <div class="cards employee-list">
-          <article class="card active-card" data-employee-card data-employee-name="Nguyễn Văn An" data-employee-store="CH An Phú" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-an.svg" alt="Nguyễn Văn An" /><div><div class="person-name">Nguyễn Văn An</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH An Phú</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:12 · 29 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Trần Văn Bình" data-employee-store="CH Hoàng Diệu" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-binh.svg" alt="Trần Văn Bình" /><div><div class="person-name">Trần Văn Bình</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Hoàng Diệu</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:34 · 7 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Lê Văn Huy" data-employee-store="CH Minh Khai" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-huy.svg" alt="Lê Văn Huy" /><div><div class="person-name">Lê Văn Huy</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Minh Khai</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:28 · 13 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Phạm Thu Trang" data-employee-store="CH Nguyễn Văn Linh" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-an.svg" alt="Phạm Thu Trang" /><div><div class="person-name">Phạm Thu Trang</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Nguyễn Văn Linh</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:36 · 5 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 3 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Đỗ Quốc Khánh" data-employee-store="CH Phú Mỹ" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-binh.svg" alt="Đỗ Quốc Khánh" /><div><div class="person-name">Đỗ Quốc Khánh</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Phú Mỹ</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:31 · 10 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Vũ Minh Đức" data-employee-store="CH Tân Thuận" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-huy.svg" alt="Vũ Minh Đức" /><div><div class="person-name">Vũ Minh Đức</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Tân Thuận</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:38 · 3 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Ngô Hải Yến" data-employee-store="CH Bình Phú" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-an.svg" alt="Ngô Hải Yến" /><div><div class="person-name">Ngô Hải Yến</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Bình Phú</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:24 · 17 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Hoàng Tuấn Kiệt" data-employee-store="CH Minh Tâm" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-binh.svg" alt="Hoàng Tuấn Kiệt" /><div><div class="person-name">Hoàng Tuấn Kiệt</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Minh Tâm</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:39 · 2 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Bùi Thanh Sơn" data-employee-store="CH An Phú" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-huy.svg" alt="Bùi Thanh Sơn" /><div><div class="person-name">Bùi Thanh Sơn</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH An Phú</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:20 · 21 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 3 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Trương Mỹ Linh" data-employee-store="CH Hoàng Diệu" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-an.svg" alt="Trương Mỹ Linh" /><div><div class="person-name">Trương Mỹ Linh</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Hoàng Diệu</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:33 · 8 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Lưu Gia Hân" data-employee-store="CH Minh Khai" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-binh.svg" alt="Lưu Gia Hân" /><div><div class="person-name">Lưu Gia Hân</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Minh Khai</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:27 · 14 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <article class="card active-card" data-employee-card data-employee-name="Nguyễn Đức Long" data-employee-store="CH Phú Mỹ" data-href="02-employee-route.html" role="button" tabindex="0">
-            <div class="card-head"><img class="avatar" src="assets/images/avatar-huy.svg" alt="Nguyễn Đức Long" /><div><div class="person-name">Nguyễn Đức Long</div><span class="badge green">Đang IN</span></div><svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg></div>
-            <div class="info-lines"><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Phú Mỹ</span></div><div class="info-line"><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:35 · 6 phút trước</span></div><div class="info-line subtle"><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div></div>
-          </article>
-          <p class="out-empty" hidden>Không tìm thấy nhân viên phù hợp.</p>
-        </div>
-      </div>
-    </section>
-    <div class="bottom-actions"><button class="btn primary" data-action data-message="Đã làm mới vị trí"><svg class="ico"><use href="assets/images/icons.svg#refresh" /></svg>Làm mới</button></div>
-    <div class="map-info-modal employee-sheet-modal" id="employee-info-modal" hidden>
-      <button class="modal-backdrop" data-modal-close aria-label="Đóng thông tin nhân viên"></button>
-      <article class="map-info-card employee-detail-card" role="dialog" aria-modal="true" aria-labelledby="employee-modal-name">
-        <span class="employee-sheet-grabber"></span><button class="modal-close" data-modal-close aria-label="Đóng"><svg class="ico"><use href="assets/images/icons.svg#close" /></svg></button>
-        <div class="modal-person"><img id="employee-modal-avatar" class="modal-avatar" src="assets/images/avatar-an.svg" alt="" /><div><h2 id="employee-modal-name">Nguyễn Văn An</h2><span id="employee-modal-status" class="badge green">Đang làm việc</span></div></div>
-        <div class="employee-detail-meta"><p><svg class="ico"><use href="assets/images/icons.svg#briefcase" /></svg><span>Ca làm việc: 08:00 - 17:00</span></p><p><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Cửa hàng hiện tại: <b id="employee-modal-store">CH An Phú</b></span></p></div>
-        <section class="employee-day-route"><h3>Lộ trình cửa hàng trong ngày (3 cửa hàng)</h3><ol><li><b>1</b><span>CH Minh Khai</span><small>08:20 – 09:05 ✓</small></li><li class="current"><b>2</b><span id="employee-modal-route-store">CH An Phú (Hiện tại)</span><small>09:12 – ...</small></li><li><b>3</b><span>CH Hoàng Diệu (Dự kiến)</span><small>~ 10:30</small></li></ol></section>
-        <div class="employee-tracking-info"><p><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật gần nhất: <b id="employee-modal-gps">09:12</b></span></p><p><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Báo cáo: Đã gửi 1/3 cửa hàng</span></p><p><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Chấm công: Đã Check-in lúc 08:02</span></p></div>
-        <div class="employee-sheet-actions"><button class="btn primary" data-href="02-employee-route.html"><svg class="ico"><use href="assets/images/icons.svg#route" /></svg>Xem lộ trình</button><div><button class="btn" data-employee-report><svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>Xem báo cáo</button></div></div>
-      </article>
-    </div>
-    <div class="toast"></div>
-  </main>
-  <script src="assets/js/app.js"></script>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Nhân viên đang IN</title>
+        <link rel="stylesheet" href="assets/css/styles.css" />
+    </head>
+    <body class="app-screen">
+        <!-- Khung màn hình -->
+        <main class="phone premium-phone">
+            <div class="statusbar"> <span>09:41</span><span class="status-right"><i class="signal"><i></i><i></i><i></i></i><i class="wifi"></i><i class="battery"></i></span></div>
+            <!-- Thanh tiêu đề và điều hướng -->
+            <header class="appbar simple">
+                <button class="icon-btn" data-back data-href="01-map-overview.html" aria-label="Quay lại"><svg class="ico"><use href="assets/images/icons.svg#back" /></svg></button>
+                <h1>Nhân viên đang IN</h1>
+                <span></span>
+            </header>
+            <!-- Nội dung chính -->
+            <section class="content">
+                <div class="location-body working-list-body">
+                    <div class="notice success"> <svg class="ico"><use href="assets/images/icons.svg#info" /></svg><span>Nhân viên đang trong ca. Vị trí hiển thị là GPS cập nhật gần nhất.</span></div>
+                    <div class="search"> <svg class="ico"><use href="assets/images/icons.svg#search" /></svg><input type="search" placeholder="Tìm nhân viên hoặc cửa hàng..." aria-label="Tìm nhân viên đang IN" data-employee-search /></div>
+                    <div class="list-summary-row">
+                        <p class="out-list-summary"><b data-employee-count>6</b> nhân viên đang IN</p>
+                        <span class="live-indicator"><i></i> Đang cập nhật</span>
+                    </div>
+                    <div class="cards employee-list">
+                        <article class="card active-card" data-employee-card data-employee-name="Nguyễn Văn An" data-employee-store="CH An Phú" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-an.svg" alt="Nguyễn Văn An" />
+                                <div>
+                                    <div class="person-name"> Nguyễn Văn An </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH An Phú</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:12 · 29 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Trần Văn Bình" data-employee-store="CH Hoàng Diệu" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-binh.svg" alt="Trần Văn Bình" />
+                                <div>
+                                    <div class="person-name"> Trần Văn Bình </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Hoàng Diệu</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:34 · 7 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Lê Văn Huy" data-employee-store="CH Minh Khai" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-huy.svg" alt="Lê Văn Huy" />
+                                <div>
+                                    <div class="person-name"> Lê Văn Huy </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Minh Khai</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:28 · 13 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Phạm Thu Trang" data-employee-store="CH Nguyễn Văn Linh" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-an.svg" alt="Phạm Thu Trang" />
+                                <div>
+                                    <div class="person-name"> Phạm Thu Trang </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Nguyễn Văn Linh</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:36 · 5 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 3 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Đỗ Quốc Khánh" data-employee-store="CH Phú Mỹ" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-binh.svg" alt="Đỗ Quốc Khánh" />
+                                <div>
+                                    <div class="person-name"> Đỗ Quốc Khánh </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Phú Mỹ</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:31 · 10 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Vũ Minh Đức" data-employee-store="CH Tân Thuận" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-huy.svg" alt="Vũ Minh Đức" />
+                                <div>
+                                    <div class="person-name"> Vũ Minh Đức </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Tân Thuận</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:38 · 3 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Ngô Hải Yến" data-employee-store="CH Bình Phú" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-an.svg" alt="Ngô Hải Yến" />
+                                <div>
+                                    <div class="person-name"> Ngô Hải Yến </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Bình Phú</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:24 · 17 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Hoàng Tuấn Kiệt" data-employee-store="CH Minh Tâm" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-binh.svg" alt="Hoàng Tuấn Kiệt" />
+                                <div>
+                                    <div class="person-name"> Hoàng Tuấn Kiệt </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Minh Tâm</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:39 · 2 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Bùi Thanh Sơn" data-employee-store="CH An Phú" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-huy.svg" alt="Bùi Thanh Sơn" />
+                                <div>
+                                    <div class="person-name"> Bùi Thanh Sơn </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH An Phú</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:20 · 21 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 3 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Trương Mỹ Linh" data-employee-store="CH Hoàng Diệu" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-an.svg" alt="Trương Mỹ Linh" />
+                                <div>
+                                    <div class="person-name"> Trương Mỹ Linh </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Hoàng Diệu</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:33 · 8 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Lưu Gia Hân" data-employee-store="CH Minh Khai" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-binh.svg" alt="Lưu Gia Hân" />
+                                <div>
+                                    <div class="person-name"> Lưu Gia Hân </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Minh Khai</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:27 · 14 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 1 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <article class="card active-card" data-employee-card data-employee-name="Nguyễn Đức Long" data-employee-store="CH Phú Mỹ" data-href="02-employee-route.html" role="button" tabindex="0">
+                            <div class="card-head">
+                                <img class="avatar" src="assets/images/avatar-huy.svg" alt="Nguyễn Đức Long" />
+                                <div>
+                                    <div class="person-name"> Nguyễn Đức Long </div>
+                                    <span class="badge green">Đang IN</span>
+                                </div>
+                                <svg class="ico"><use href="assets/images/icons.svg#chevron" /></svg>
+                            </div>
+                            <div class="info-lines">
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Đang tại: CH Phú Mỹ</span></div>
+                                <div class="info-line"> <svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật 09:35 · 6 phút trước</span></div>
+                                <div class="info-line subtle"> <svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Còn 2 cửa hàng trong lộ trình</span></div>
+                            </div>
+                        </article>
+                        <p class="out-empty" hidden>Không tìm thấy nhân viên phù hợp.</p>
+                    </div>
+                </div>
+            </section>
+            <div class="bottom-actions">
+                <button class="btn primary" data-action data-message="Đã làm mới vị trí"><svg class="ico"><use href="assets/images/icons.svg#refresh" /></svg>Làm mới</button>
+            </div>
+            <div class="map-info-modal employee-sheet-modal" id="employee-info-modal" hidden>
+                <button class="modal-backdrop" data-modal-close aria-label="Đóng thông tin nhân viên"></button>
+                <article class="map-info-card employee-detail-card" role="dialog" aria-modal="true" aria-labelledby="employee-modal-name">
+                    <span class="employee-sheet-grabber"></span>
+                    <button class="modal-close" data-modal-close aria-label="Đóng"><svg class="ico"><use href="assets/images/icons.svg#close" /></svg></button>
+                    <div class="modal-person">
+                        <img id="employee-modal-avatar" class="modal-avatar" src="assets/images/avatar-an.svg" alt="" />
+                        <div>
+                            <h2 id="employee-modal-name">Nguyễn Văn An</h2>
+                            <span id="employee-modal-status" class="badge green">Đang làm việc</span>
+                        </div>
+                    </div>
+                    <div class="employee-detail-meta">
+                        <p><svg class="ico"><use href="assets/images/icons.svg#briefcase" /></svg><span>Ca làm việc: 08:00 - 17:00</span></p>
+                        <p><svg class="ico"><use href="assets/images/icons.svg#store" /></svg><span>Cửa hàng hiện tại: <b id="employee-modal-store">CH An Phú</b></span></p>
+                    </div>
+                    <section class="employee-day-route">
+                        <h3>Lộ trình cửa hàng trong ngày (3 cửa hàng)</h3>
+                        <ol>
+                            <li> <b>1</b><span>CH Minh Khai</span><small>08:20 – 09:05 ✓</small></li>
+                            <li class="current"> <b>2</b><span id="employee-modal-route-store">CH An Phú (Hiện tại)</span><small>09:12 – ...</small></li>
+                            <li> <b>3</b><span>CH Hoàng Diệu (Dự kiến)</span><small>~ 10:30</small></li>
+                        </ol>
+                    </section>
+                    <div class="employee-tracking-info">
+                        <p><svg class="ico"><use href="assets/images/icons.svg#pin" /></svg><span>GPS cập nhật gần nhất: <b id="employee-modal-gps">09:12</b></span></p>
+                        <p><svg class="ico"><use href="assets/images/icons.svg#report" /></svg><span>Báo cáo: Đã gửi 1/3 cửa hàng</span></p>
+                        <p><svg class="ico"><use href="assets/images/icons.svg#clock" /></svg><span>Chấm công: Đã Check-in lúc 08:02</span></p>
+                    </div>
+                    <div class="employee-sheet-actions">
+                        <button class="btn primary" data-href="02-employee-route.html"><svg class="ico"><use href="assets/images/icons.svg#route" /></svg>Xem lộ trình</button>
+                        <div>
+                            <button class="btn" data-employee-report><svg class="ico"><use href="assets/images/icons.svg#chart" /></svg>Xem báo cáo</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="toast"></div>
+        </main>
+        <!-- Scripts: dữ liệu → chức năng → khởi tạo; giữ thứ tự này. -->
+        <script src="assets/js/demo-data.js"></script>
+        <script src="assets/js/icons.js"></script>
+        <script src="assets/js/core.js"></script>
+        <script src="assets/js/map.js"></script>
+        <script src="assets/js/modals.js"></script>
+        <script src="assets/js/employees.js"></script>
+        <script src="assets/js/filters.js"></script>
+        <script src="assets/js/checkin.js"></script>
+        <script src="assets/js/evaluation.js"></script>
+        <script src="assets/js/reports.js"></script>
+        <script src="assets/js/stores.js"></script>
+        <script src="assets/js/app.js"></script>
+    </body>
 </html>

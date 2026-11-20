@@ -1,0 +1,81 @@
+.evaluation-note {
+    margin: 10px 1px;
+    color: #6e7a73;
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.rating-list {
+    border: 1px solid #e1e7e3;
+    border-radius: 9px;
+    overflow: hidden;
+}
+
+.rating-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #e6ebe8;
+}
+
+.rating-item:last-child {
+    border: 0;
+}
+
+.rating-item b, .rating-item small {
+    display: block;
+}
+
+.rating-item b {
+    font-size: 9.5px;
+}
+
+.rating-item small {
+    margin-top: 3px;
+    color: #77827c;
+    font-size: 8px;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 1px;
+}
+
+.rating-stars button {
+    padding: 0;
+    border: 0;
+    color: #d7ddd9;
+    background: transparent;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.rating-stars button.selected {
+    color: #f3ad18;
+}
+
+.evaluation-comment {
+    display: grid;
+    gap: 5px;
+    margin-top: 12px;
+    color: #3b4741;
+    font-size: 9.5px;
+    font-weight: 700;
+}
+
+.evaluation-comment textarea {
+    height: 70px;
+    padding: 8px;
+    border: 1px solid #d9e1dd;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 9px;
+    outline: none;
+    resize: none;
+}
+
+.evaluation-comment textarea:focus {
+    border-color: #008b52;
+}
