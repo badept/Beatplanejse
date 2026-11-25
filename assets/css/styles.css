@@ -3389,32 +3389,6 @@
                          pointer-events: none;
                      }
 
-                     /* A selected filter area remains visibly outlined after the map zooms in. */
-                     .overview-page .map-photo[data-area-focus]::after {
-                         content: "";
-                         position: absolute;
-                         z-index: 3;
-                         border: 2px dashed #0878d9;
-                         border-radius: 46%;
-                         background: #0878d914;
-                         box-shadow: 0 0 0 5px #ffffff90;
-                         pointer-events: none;
-                     }
-
-                     .overview-page .map-photo[data-area-focus="thu-duc"]::after {
-                         top: 8%;
-                         right: 4%;
-                         width: 39%;
-                         height: 75%;
-                     }
-
-                     .overview-page .map-photo[data-area-focus="binh-thanh"]::after {
-                         top: 13%;
-                         left: 4%;
-                         width: 40%;
-                         height: 72%;
-                     }
-
                      /* Additional stores in each area. */
                      .overview-page .store-nine { top: 13%; left: 79%; }
                      .overview-page .store-eleven { top: 39%; left: 82%; }
