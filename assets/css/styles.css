@@ -2784,25 +2784,6 @@
                          transition: transform 220ms ease;
                      }
                      
-                     .map-zoom-level {
-                         position: absolute;
-                         z-index: 7;
-                         top: 10px;
-                         right: 12px;
-                         padding: 5px 9px;
-                         border: 1px solid #ffffffb8;
-                         border-radius: 99px;
-                         color: #42534b;
-                         background: #ffffffd9;
-                         box-shadow: 0 3px 10px #1633261f;
-                         font-size: 10px;
-                         backdrop-filter: blur(5px);
-                     }
-                     
-                     .map-zoom-level b {
-                         color: #008d55;
-                     }
-                     
                      .overview-page .premium-me {
                          top: 35%;
                          left: 50%;

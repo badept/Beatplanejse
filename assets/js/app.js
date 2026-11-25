@@ -248,8 +248,6 @@ function setMapZoom(map, zoom) {
     map.style.setProperty("--map-zoom-size", `${mapSize}%`);
     map.style.setProperty("--map-marker-scale", String(mapSize / 161));
 
-    const label = map.querySelector(".map-zoom-level b");
-    if (label) label.textContent = nextZoom.toFixed(0);
 }
 
 function prepareMapZoomLayer(map) {
@@ -258,7 +256,7 @@ function prepareMapZoomLayer(map) {
     map.insertBefore(zoomLayer, map.firstChild);
 
     [...map.children].forEach((child) => {
-        if (!child.matches(".map-zoom-level, .premium-zoom, .map-zoom-layer")) {
+        if (!child.matches(".premium-zoom, .map-zoom-layer")) {
             zoomLayer.append(child);
         }
     });
